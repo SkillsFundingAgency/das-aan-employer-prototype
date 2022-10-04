@@ -14,29 +14,79 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl base-margin">
-       Welcome Paul,
+       APPRENTICESHIP LTD
       </h1>
-      <h4 class="govuk-body-l">Healthcare support worker</h4>
+      
+      <div class="left-pannel medium-margin-bottom">
+        <p class="indent-s"><strong>Account ID:</strong> 6BDHJ8</P>
+        <p class="indent-s"><strong>Agreement ID:</strong> 7ZPZV5</P>
+      </div>
 
+      <div class="pannel-bottom">
+        {{ govukSummaryList({
+        
+          rows: [
+            {
+              key: {
+                text: "Apprentices"
+              },
+              value: {
+                text: "Kevin Parker"
+              }
+            },
+            {
+              key: {
+                text: "Training provider"
+              },
+              value: {
+                text: "EDUC8 Trainning"
+              }
+            },
+            {
+              key: {
+                text: "Level"
+              },
+              value: {
+                text: "2"
+              }
+            },
+            {
+              key: {
+                text: "Planned training start date"
+              },
+              value: {
+                text: "February 2022"
+              }
+            },
+            {
+              key: {
+                text: "Planned training end date"
+              },
+              value: {
+                text: "April 2023"
+              }
+            }
+           
+          ]
+        }) }}
+  
+
+      </div>
+      
+      
       <ul class="govuk-body-l">
         <div class="summary">
         <li class="list">
-           <h4 class="hyperlink">My apprenticeship details</h4>
-           <span>Details of your employer, training provider and 
-            apprenticeship.</span>
+           <h4 class="hyperlink">Apprentices</h4>
+           <span>Add apprentices, update details of existing apprentices, change training providers and authorise payments to training providers.</span>
         </li>
         <li class="list">
-          <h4 class="hyperlink">Feedback on your training provider</h4>
-          <span>Let us know how you’re getting on with your 
-            apprenticeship and how your training provider can
-            improve to help other apprentices.</span>
+          <h4 class="hyperlink">Your apprenticeship adverts</h4>
+          <span>Create adverts to post on find an apprenticeship.</span>
        </li> 
         <li class="list">
-          <a href="aanApplication"><h4 class="hyperlink">Become an apprenticeship ambassador</h4></a>
-          <span>The AAN (comprised of employer and apprentice 
-            members) is the movement championing 
-            apprenticeships across England. The network raises 
-            awareness and increases engagement to meet the 
+          <a href="aanApplication"><h4 class="hyperlink">Become an employer ambassador</h4></a>
+          <span>The AAN (comprised of employer and apprentice members) is the movement championing apprenticeships across England. The network raises awareness and increases engagement to meet the 
             needs of employers, communities, and individuals.</span>
         </li>
     </div>
