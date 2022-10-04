@@ -1,0 +1,44 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block pageNavigation %}
+  
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+            },
+            {
+              text: "Events Notifications",
+              href: "/event-notifications"
+            }
+        ]
+        }) }}
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Event Notifications 
+  </h1>
+  <p class="govuk-body-l">
+    The latest updates for events most relevant to your profile 
+  </p>
+
+  {% for event in events %}
+  {% include "eventCard.html" %} 
+{% endfor %}
+
+{% endblock %}

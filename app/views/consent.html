@@ -1,0 +1,45 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">
+    Terms and Conditions
+  </h1>
+  <p class="govuk-body-m">
+    By consenting:
+  </p>
+
+  <ul class="govuk-body-m medium-margin-bottom indent">
+      <li class="base-margin-bottom">You are agreeing to share the minimum profile information across the network.</li>
+      <li class="base-margin-bottom">This will include</li>
+          <ul>
+            <li class="nested-list">Name</li>
+            <li class="nested-list">Email address</li>
+            <li class="nested-list base-margin-bottom">Region</li>
+          </ul>
+      <li class="base-margin-bottom">This information will be visible to others during search and filtering the network directory.</li>
+      <li class="base-margin-bottom">Other members will be able to see when you have signed up to an event.</li>
+  </ul>
+
+  <p class="gov-body-s medium-margin-bottom">
+    Once accepted into the network, you will be able to alter your information sharing preferences in your profile settings.
+  </p> 
+
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          href: "/check-answers-app"
+        }) 
+  }}
+
+
+{% endblock %}

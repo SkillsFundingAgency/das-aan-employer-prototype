@@ -1,0 +1,75 @@
+ {% set cards = [
+    {
+        title: "Your event notifications",
+        subtitle: "Updates from the AAN team on events most relevant to you.",
+        id: "event-notifications"
+    },
+    {
+        title: "Search for an event",
+        subtitle: "Search for the most suitable events across the network.",
+        id: "event-search"
+    },
+    {
+        title: "Manage your events",
+        subtitle: "Manage your upcoming events and provide feedback on events you attended.",
+        id: "manage-event"
+    }, 
+    {
+        title: "Event resources & templates",
+        subtitle: "Find events most relevant for you and keep track of all the upcoming events you are signed up for.",
+        id: "event-resources"
+    }
+]
+%}
+
+// main content 
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+              }
+        ]
+        }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+  <h1 class="govuk-heading-xl small-margin-bottom">
+    Events
+  </h1>
+
+  <h4 class="small-margin-bottom govuk-body-m govuk-!-font-weight-bold">
+    Your upcoming events:
+  </h4>
+
+  <div class="calendar">
+    <img class="small-margin-bottom"
+    src="/public/images/calendar-icon1.jpg" alt="calendar" width="60%">
+  </div>
+
+
+  {% for card in cards %}
+    {% include "contentCard.html" %} 
+  {% endfor %}
+
+
+
+{% endblock %}

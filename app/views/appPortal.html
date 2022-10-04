@@ -1,0 +1,49 @@
+    {% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Apprentice Sign In
+  </h1>
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Sign In",
+    classes: "govuk-label--l",
+    isPageHeading: false
+  },
+  id: "signIn",
+  name: "signIn"
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Password",
+    classes: "govuk-label--l",
+    isPageHeading: false
+  },
+  id: "Password",
+  name: "Password",
+  type: "password"
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Sign In",
+  href: "apprenticeHome"
+}) }}
+
+{% endblock %}
+
+
+
+

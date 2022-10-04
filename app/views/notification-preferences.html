@@ -1,0 +1,280 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+    {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Profile settings",
+              href: "/profile-settings"
+            },
+            {
+              text: "Notification preferences",
+              href: "/notifcation-preferences"
+            }
+         
+        ]
+        }) 
+    }}
+    
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Your notification preferences 
+  </h1>
+  <p class="govuk-body-m">
+    Let us know which notifcations you want to recieve from the AAN and your preferred 
+    channels of communication.
+  </p>
+
+ <h3 class="govuk-heading-m hyperlink base-margin">
+    I want the AAN to contact me about:
+  </h3>
+
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+    classes: "govuk-radios--small flex",
+    name: "regional-event-opportunities",
+    formGroup: {
+        classes: "flex"
+    },
+    fieldset: {
+        classes: "flex",
+        legend: {
+        text: "Regional event opportunties",
+        classes: ""
+        }
+    },
+    items: [
+        {
+        value: "yes",
+        text: "Yes"
+        },
+        {
+        value: "no",
+        text: "No"
+        }
+    ]
+    })
+    
+}}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+    classes: "govuk-radios--small flex",
+    name: "online-event-opportunities",
+    formGroup: {
+        classes: "flex"
+    },
+    fieldset: {
+        classes: "flex",
+        legend: {
+        text: "Online event opportunties",
+        classes: ""
+        }
+    },
+    items: [
+        {
+        value: "yes",
+        text: "Yes"
+        },
+        {
+        value: "no",
+        text: "No"
+        }
+    ]
+    })
+    
+}}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--small flex",
+  name: "Mentoring an apprentice",
+  fieldset: {
+      classes: "flex",
+      legend: {
+      text: "Mentoring an apprentice:",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend flex"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+classes: "govuk-radios--small flex",
+name: "regional-event-opportunities",
+formGroup: {
+    classes: "flex"
+},
+fieldset: {
+    classes: "flex",
+    legend: {
+    text: "Regional networking:",
+    classes: ""
+    }
+},
+items: [
+    {
+    value: "yes",
+    text: "Yes"
+    },
+    {
+    value: "no",
+    text: "No"
+    }
+]
+})
+
+}}
+
+{{ govukRadios({
+    classes: "govuk-radios--small flex",
+    name: "National networking",
+    formGroup: {
+        classes: "flex"
+    },
+    fieldset: {
+        classes: "flex",
+        legend: {
+        text: "National networking:",
+        classes: ""
+        }
+    },
+    items: [
+        {
+        value: "yes",
+        text: "Yes"
+        },
+        {
+        value: "no",
+        text: "No"
+        }
+    ]
+    })
+    
+    }}
+
+    {{ govukRadios({
+        classes: "govuk-radios--small flex",
+        name: "AAN national newsletter ",
+        formGroup: {
+            classes: "flex"
+        },
+        fieldset: {
+            classes: "flex",
+            legend: {
+            text: "AAN national newsletter:",
+            classes: ""
+            }
+        },
+        items: [
+            {
+            value: "yes",
+            text: "Yes"
+            },
+            {
+            value: "no",
+            text: "No"
+            }
+        ]
+        })
+        
+        }}
+
+        
+        <h3 class="govuk-heading-m hyperlink base-margin">
+            I prefer the AAN to contact me by:
+          </h3>
+        
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+            {{ govukRadios({
+            classes: "govuk-radios--small",
+            name: "AAN-contact",
+            formGroup: {
+                classes: "flex"
+            },
+            items: [
+                {
+                value: "email",
+                text: "Email"
+                },
+                {
+                value: "text-message",
+                text: "Text message"
+                },
+                {
+                    value: "both",
+                    text: "Both"
+                    }
+            ]
+            })
+            }}
+
+            <h3 class="govuk-heading-m hyperlink base-margin">
+              I prefer the AAN to contact me:
+            </h3>
+
+            {{ govukRadios({
+              classes: "govuk-radios--small",
+              name: "frequency",
+              formGroup: {
+                  classes: "flex"
+              },
+              items: [
+                  {
+                  value: "daily",
+                  text: "Daily"
+                  },
+                  {
+                  value: "weekly",
+                  text: "Weekly"
+                  },
+                  {
+                      value: "monthly",
+                      text: "Monthly"
+                      }
+              ]
+              })
+              }}
+  
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Submit",
+        href: "/"
+      }) 
+  }}
+
+
+{% endblock %}
+

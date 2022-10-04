@@ -1,0 +1,145 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+            },
+            {
+              text: "Events Notifications",
+              href: "/event-notifications"
+            }
+            ]
+        }) }}
+  {% endblock %}
+
+{% block content %}
+
+    {% set eventTitle %}
+        {{selectedEvent.eventTitle}}
+    {% endset %}
+
+  <h1 class="govuk-heading-xl">
+  {{selectedEvent.eventTitle}}
+  </h1>
+  
+  <p class="govuk-body-l">
+   All details about this event:
+  </p>
+
+  <p class="govuk-body-l 
+               small-margin-bottom">
+               <strong>Event Type:</strong>
+               {{selectedEvent.type}}
+    </p>
+
+    <p class="govuk-body-l 
+               small-margin-bottom">
+               <strong>Event Date:</strong>
+               {{selectedEvent.date}}
+    </p>
+
+    <p class="govuk-body-l 
+             base-margin-bottom">
+        <strong>Event Location:</strong>
+        {{selectedEvent.eventBuilding}}
+    </p>
+    
+    <div class="flex small-margin-bottom">
+        <img src="/public/images/pin.png" alt="location" height="30px">
+
+        <a href="#" class="govuk-body-l govuk-link indent-s">https://goo.gl/maps/hDEMtrUzgn16MWTQ8</a>
+    </div>
+
+    <p class="govuk-body-l 
+             small-margin-bottom">
+        <strong>Start Time:</strong>
+        {{selectedEvent.start}}
+    </p>
+
+    <p class="govuk-body-l 
+                small-margin-bottom">
+            <strong>End Time:</strong>
+            {{selectedEvent.end}}
+    </p>
+
+    <p class="govuk-body-l 
+            medium-margin-bottom">
+                 <strong>Event Contact:</strong>
+                {{selectedEvent.contact}}
+    </p>    
+
+    <div class="govuk-body-l 
+            medium-margin-bottom">
+                <p class="small-margin-bottom"> 
+                    <strong>Event Summary:</strong>
+                {{selectedEvent.summary1}}</p>
+                <p>{{selectedEvent.summary2}}</p>
+                <p>{{selectedEvent.summary3}}</p>
+</div>  
+
+ 
+    <p class="govuk-body-l 
+            small-margin-bottom">
+                 <strong>Guest Speakers:</strong><br>
+
+                 <strong>Sam Kershaw - Apprenticeships at Manchester United </strong><br>
+                <strong> Emanuel - Parc and Recs of MCR</strong>
+                
+    </p>    
+
+
+    <div class="flex">
+        <img src="/public/images/pin.png" alt="location" height="30px">
+
+        <a href="#" class="govuk-body-l indent-s govuk-link">https://goo.gl/maps/hDEMtrUzgn16MWTQ8</a>
+    </div>
+
+
+    <p class="govuk-body-m base-margin-bottom">
+        See AAN members who are currently signed up to attend this event:</p>
+
+    <div class="flex">
+
+        {% for member in members %}
+            {% include "profilePics.html" %} 
+        {% endfor %}
+    </div>
+
+    {% set cards = [
+        {
+            title: "Regional meet-up resources & templates",
+            subtitle: "Relevant support resources you may want to use for this event.",
+            id: "resources"
+        }
+    ]
+    %}
+    
+    {% for card in cards %}
+        {% include "eventCard.html" %} 
+    {% endfor %}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+    {{ govukButton({
+        text: "Sign up",
+        href: "/success-manage-event"
+        }) 
+    }}
+
+{% endblock %}

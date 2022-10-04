@@ -1,0 +1,75 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+            }
+            ]
+        }) }}
+  {% endblock %}
+
+{% block content %}
+
+
+  <h1 class="govuk-heading-xl">
+     Manchester Meetup
+  </h1>
+  
+  <p class="govuk-body-l">
+   All details about this event
+  </p>
+
+  <p class="govuk-body-l 
+               base-margin-bottom">
+               Join regional AAN colleagues at Manchester Town Hall on Tuesday 27 September to share your recent activity within the network.</p>
+
+  <p class="govuk-body-l 
+               base-margin-bottom">Fellow ambassadors will talk about their experience at recent events. There will be an insight sharing session, guest speakers and an opportunity to network with colleagues who are new to the network.</p>
+  
+    <p class="govuk-body-l 
+            base-margin-bottom">Time: 7pm arrivals for 7:30pm start</p>
+
+  <p class="govuk-body-l 
+            medium-margin-bottom">Guest speakers: 
+
+    Sam Kershaw - Apprenticeships at Manchester United 
+    Lia Emanuel - Parc and Recs of MCR</p>
+
+    <p class="govuk-body-m base-margin-bottom">
+       Others who are attending this event:</p>
+
+    <div class="flex flex-wrap medium-margin-bottom">
+
+        {% for member in members %}
+            {% include "profilePics.html" %} 
+        {% endfor %}
+    </div>
+
+   
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+    {{ govukButton({
+        text: "Remove event from calendar",
+        classes: "govuk-button--secondary",
+        href: "/events"
+        }) 
+    }}
+
+{% endblock %}

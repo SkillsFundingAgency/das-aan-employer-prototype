@@ -1,0 +1,114 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+    {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Network Directory",
+              href: "/network-directory"
+            }
+         
+        ]
+        }) 
+    }}
+    
+  {% endblock %}
+
+{% block content %}
+
+ <h1 class="govuk-heading-xl">
+   Apprentice Directory
+  </h1>
+        <p class="govuk-body-m">
+            Search our apprentice directory to find a suitable ambassador to meet your needs based on location, event preference or activity. 
+        </p>
+
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+    {{ govukSelect({
+         id: "filter-region",
+        name: "filter-regions",
+         label: {
+                text: "Region"
+        },
+         items: selectedRegions
+        })
+    }}
+
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+    {{ govukSelect({
+         id: "filter-industry",
+        name: "filter-industry",
+         label: {
+                text: "Sector"
+        },
+         items: selectedIndustry
+        })
+    }}
+
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Results",
+  captionClasses: "govuk-table__caption--m",
+  attributes: {
+      href: "#"
+  },
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Name",
+      classes: 'app-custom-class'
+    },
+    {
+      text: "Region",
+      classes: 'app-custom-class'
+    },
+    {
+      text: "Your AAN Activity",
+      classes: 'app-custom-class'
+    },
+    {
+      text: "Date joined",
+      classes: 'app-custom-class'
+    }
+  ],
+  rows: profileRows
+}) }}
+
+
+<script>
+   
+    let selects = document.querySelectorAll('.govuk-select')
+    let selectR = document.querySelector('#filter-region')
+    let selectI = document.querySelector('#filter-industry')
+
+    console.log("select", selects )
+
+  
+    selects.forEach(select => {
+      console.log('foreach')
+       addEventListener('change', () => {
+         console.log("event listener")
+         window.location = `/network-directory?r=${selectR.value}&i=${selectI.value}`
+      })
+    })  
+  
+  </script>
+
+{% endblock %} 

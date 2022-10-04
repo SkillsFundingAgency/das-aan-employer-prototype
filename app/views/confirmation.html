@@ -1,0 +1,26 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{{ govukPanel({
+    titleText: "Your application has been submitted",
+    html: "We will contact you regarding your application within 14 days.<br>
+    Your reference number is:<br><strong>HDJ2123F</strong>"
+    }) 
+}}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {{ govukButton({
+    text: "Continue",
+    href: "/hubHome"
+    }) }}
+
+{% endblock %}
+

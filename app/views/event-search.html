@@ -1,0 +1,88 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+ {% block pageNavigation %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+            },
+            {
+              text: "Seach Events",
+              href: "/event-search"
+            }
+            ]
+        }) }}
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Search Events
+  </h1>
+
+  <p class="base-margin-bottom">All events being held in the AAN are listed on this page. You can filter events by your role, region and event type. </p>
+
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "filter-region",
+  name: "filter-region",
+  label: {
+    text: "Region"
+  },
+  items: selectedRegions
+})
+ }}
+
+ {{ govukSelect({
+  id: "filter-industry",
+ name: "filter-industry",
+  label: {
+         text: "Sector"
+ },
+  items: selectedIndustry
+ })
+}}
+
+
+
+  <h4 class="govuk-body-s govuk-!-font-weight-bold">
+    {{filteredEvents | length}} events upcoming listed 
+  </h4>
+
+  {% for event in filteredEvents %}
+        {% include "eventCard.html" %} 
+  {% endfor %}
+
+
+
+  <script>
+   
+   let selects = document.querySelectorAll('.govuk-select')
+    let selectR = document.querySelector('#filter-region')
+    let selectI = document.querySelector('#filter-industry')
+
+    selects.forEach(select => {
+      console.log('foreach')
+       addEventListener('change', () => {
+         console.log("event listener", select.value)
+         window.location = `/event-search?r=${selectR.value}&i=${selectI.value}`
+      })
+    })
+
+  </script>
+
+{% endblock %}
+

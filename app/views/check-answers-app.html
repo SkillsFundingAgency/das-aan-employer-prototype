@@ -1,0 +1,181 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              html: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: data['date-of-birth'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Region"
+            },
+            value: {
+              text: data['filter-regions']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Current line manager"
+            },
+            value: {
+             text: data['Current-line-manager']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Line manager email:"
+            },
+            value: {
+             text: data['line-manager-email']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "line manager contact"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m">Application details</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Application outline"
+            },
+            value: {
+              text: data['application-reasons']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "application outline"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Network preferences"
+            },
+            value: {
+              text: data['network-preferences']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "Network preferences"
+                }
+              ]
+            }
+          }
+        ] 
+      })
+    }}
+    
+  
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Accept and submit"
+        }) }}
+
+      </form>
+      
+    </div>
+  </div>
+
+
+{% endblock %}

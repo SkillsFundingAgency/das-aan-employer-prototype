@@ -1,0 +1,190 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+    {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Profile settings",
+              href: "/profile-settings"
+            },
+            {
+              text: "Leave the network",
+              href: "/leave-network"
+            }
+         
+        ]
+        }) 
+    }}
+    
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Leave the Network 
+  </h1>
+  <p class="govuk-body-m">
+   We would like your feedback on why you're leaving.
+  </p>
+
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+    name: "leaving-reasons",
+    id: "leaving-reasons",
+    label: {
+        text: "Can you tell us why you are leaving the network?",
+        classes: "govuk-label--s",
+        isPageHeading: false
+    }
+  }) 
+}}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "leaving-reasons",
+  id: "leaving-reasons",
+  label: {
+    text: "Please provide any feedback on your time with the network",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  hint: {
+      text: "Provide details on what you liked and didnt like about the network"
+  }
+}) }}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--small",
+  id: "contact-radio",
+  name: "leave-network-contact",
+  fieldset: {
+    legend: {
+      text: "Would you like to be contacted by the network after leaving?",
+      classes: "govuk-label--s"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+<div id="checkbox-container" class="hidden small-margin-bottom">
+
+{{ govukRadios({
+  classes: "govuk-radios--small",
+  id: "contact-radio",
+  name: "leave-network-contact",
+  fieldset: {
+    legend: {
+      text: "How often would you like receive comms from us?",
+      classes: "govuk-label--s"
+    }
+  },
+  items: [
+    {
+      value: "quarterly",
+      text: "Quarterly"
+    },
+    {
+      value: "every-month",
+      text: "Every Month"
+    },
+    {
+      value: "fortnightly",
+      text: "Fortnightly"
+    }
+    ]
+
+    }) }}
+
+    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "communication-type",
+  fieldset: {
+    legend: {
+      text: "Tell us which type of communication you would prefer after leaving the network?",
+      classes: "govuk-label--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Newsletter",
+      text: "Newsletter"
+    },
+    {
+      value: "Online events",
+      text: "Online events"
+    },
+    {
+      value: "Apprentice alumni events",
+      text: "Apprentice alumni events"
+    }
+  ]
+}) }}
+
+
+</div>
+
+
+
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {{ govukButton({
+    text: "Submit",
+    href: "/hubHome"
+    }) 
+}}
+
+<script>
+
+  let radios = document.querySelectorAll('.govuk-radios__item')
+  let checkboxes = document.querySelector('#checkbox-container')
+
+  radios.forEach(radio => {
+    radio.addEventListener('click', (e) => {
+
+    if(e.target.value === 'yes'){
+      checkboxes.classList.remove('hidden')
+      checkboxes.classList.add('flex')
+    }
+    else if(e.target.value == 'no') {
+      checkboxes.classList.remove('flex')
+      checkboxes.classList.add('hidden')
+    }
+  })
+  
+
+  })
+
+</script>
+
+{% endblock %}

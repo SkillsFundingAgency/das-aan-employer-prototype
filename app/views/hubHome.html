@@ -1,0 +1,143 @@
+
+{% set cards = [
+    {
+        title: "Events",
+        subtitle: "Find events most relevant for you and keep track of all the upcoming events you are signed up for.",
+        id: "events"
+    },
+    {
+        title: "Latest AAN news",
+        subtitle: "Keep up-to-date with the latest news across the network and in your area.",
+        id: "news"
+    },
+    {
+        title: "Network directory",
+        subtitle: "Find other ambassadors to connect with in the AAN.",
+        id: "network-directory"
+    }, 
+    {
+        title: "Profile settings",
+        subtitle: "Manage your notifications, AAN Hub and personal information.",
+        id: "profile-settings"
+    }
+]
+%}
+
+
+
+// main content
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            }
+        ]
+        }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-xl small-margin-bottom">
+    Welcome {{data['full-name']}},
+   </h1>
+
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Events attended"
+            },
+            value: {
+                text: 0
+            }
+            },
+            {
+            key: {
+                text: "Events signed up for"
+            },
+            value: {
+                text: 0
+            }
+            },
+            {
+            key: {
+                text: "Start date"
+            },
+            value: {
+                html: "September 2022"
+            }
+            },
+            {
+            key: {
+                text: "Regions you're active in"
+            },
+            value: {
+                html: 'South West'
+            }
+            }
+        
+        ]
+        }) 
+    }}
+
+{% for card in cards %}
+    {% include "contentCard.html" %} 
+{% endfor %}
+</div>
+
+<div class="govuk-grid-column-one-third">
+    <div class="hub-container base-margin-bottom">
+         <img class="border" src="/public/images/training.png" alt="online training video" width="100%">
+    </div>
+
+    <div class="training-card">
+        <p class="govuk-body-s base-margin-bottom">1.</p>
+            <p class="govuk-body-s base-margin-bottom training-content">Welcome to the AAN Hub</p>
+            <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
+
+    </div>
+
+    <div class="training-card">
+        <p class="govuk-body-s base-margin-bottom">2.</p>
+        <p class="govuk-body-s base-margin-bottom training-content">Your role</p>
+        <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
+
+    </div>
+
+    <div class="training-card">
+        <p class="govuk-body-s base-margin-bottom">3.</p>
+        <p class="govuk-body-s base-margin-bottom training-content">Events</p>
+         <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
+
+    </div>
+            
+</div>
+
+    
+</div>
+
+{% endblock %}
+
+
+
+

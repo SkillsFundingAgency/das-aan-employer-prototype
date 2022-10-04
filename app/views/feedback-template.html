@@ -1,0 +1,114 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Events",
+              href: "/events"
+            },
+            {
+              text: "Manage Events",
+              href: "/manage-event"
+            },
+            {
+              text: "Feedback Forms",
+              href: "/feedback-template"
+            }
+
+            ]
+        }) }}
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+   Your event feedback
+  </h1>
+  
+  <div class="feedback-container small-margin-bottom">
+
+        <p class="govuk-body-l 
+                  base-margin-bottom">
+            You attended: {{ selectedForm.eventName }}
+        </p>
+
+        <p class="govuk-body-l 
+                  base-margin-bottom">
+            Date: {{ selectedForm.date }}
+        </p>
+
+        <p class="govuk-body-l 
+                  base-margin-bottom">
+            Location: {{ selectedForm.location }}
+        </p>
+    </div>
+
+
+  
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukInput({
+            label: {
+                text: "Did the meeting go ahead and
+                stay on agenda?"
+            },
+            id: "agenda?",
+            name: "agenda?"
+            }) 
+        }}
+
+        {{ govukInput({
+            label: {
+                    text: "Were you able to get the support
+                    you needed from other 
+                    ambassadors / organisations?"
+                },
+            id: "support",
+            name: "support"
+            }) 
+        }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+            {{ govukTextarea({
+            name: "role-at-event",
+            id: "role-at-event",
+            label: {
+                text: "What was your main role at
+                the event?"
+            }
+            }) 
+        }}
+
+        {{ govukInput({
+            label: {
+                    text: "How many new AAN members
+                    did you meet?"
+                },
+            id: "new-members",
+            name: "new-members"
+            }) 
+        }}
+    
+    
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {{ govukButton({
+        text: "Submit",
+        href: "/hubHome"
+        }) 
+    }}
+
+{% endblock %}

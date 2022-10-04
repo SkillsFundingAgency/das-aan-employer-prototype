@@ -1,0 +1,121 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+    {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Network Directory",
+              href: "/network-directory"
+            },
+            {
+              text: "Profile",
+              href: ""
+            }
+        ]
+        }) 
+    }}
+    
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    {{selectedProfile.name}}
+  </h1>
+
+  <div class="flex">
+         <img class="border-radius
+                     medium-margin-bottom" src="{{selectedProfile.src}}" alt="Profile" width="40%"/>
+    </div>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: selectedProfile.name
+      }
+    },
+    {
+      key: {
+        text: "Email address:"
+      },
+      value: {
+        text: selectedProfile.email
+      }
+    },
+    {
+      key: {
+        text: "Residence (Town or City):"
+      },
+      value: {
+        text: selectedProfile.city
+      }
+    },
+    {
+      key: {
+        text: "Region:"
+      },
+      value: {
+        text: selectedProfile.location
+      }
+    },
+    {
+      key: {
+        text: "Current Role"
+      },
+      value: {
+       text: selectedProfile.role
+      }
+    },
+    {
+      key: {
+        text: "Employer"
+      },
+      value: {
+       text: selectedProfile.employer
+      }
+    },
+    {
+      key: {
+        text: "Apprentice status"
+      },
+      value: {
+       text: selectedProfile.appr
+      }
+    },
+    {
+      key: {
+        text: "Joined the network:"
+      },
+      value: {
+       text: selectedProfile.date
+      }
+    },
+    {
+      key: {
+        text: "Network Activities:"
+      },
+      value: {
+       text: selectedProfile.events
+      }
+    }
+  ]
+}) }}
+{% endblock %}

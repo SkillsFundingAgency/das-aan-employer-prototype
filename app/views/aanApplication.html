@@ -1,0 +1,170 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="govuk-heading-xl">
+        Your AAN Application
+    </h1>
+
+    <form action="/consent" method="post" novalidate>
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+    {% from "govuk/components/select/macro.njk" import govukSelect %} 
+
+        {{ govukInput({
+            label: {
+                text: "Full Name"
+            },
+            id: "full-name",
+            name: "full-name",
+            classes: "govuk-!-width-two-thirds",
+            value: data['full-name']
+            }) 
+        }}
+
+
+            {{ govukDateInput({
+              id: "date-of-birth",
+              namePrefix: "[date-of-birth]",
+              fieldset: {
+                legend: {
+                  text: "Enter your date of birth"
+                }
+              },
+              items: [
+                  {
+                    name: "day",
+                    id: "day",
+                    classes: "govuk-input--width-2",
+                    value: data['date-of-birth-day']
+                  },
+                  {
+                    name: "month",
+                    id: "month",
+                    classes: "govuk-input--width-2",
+                    value: data['date-of-birth-month']
+                  },
+                  {
+                    name: "year",
+                    id: "year",
+                    classes: "govuk-input--width-4",
+                    value: data['date-of-birth-year']
+                  }
+              ],
+              hint: {
+                text: "For example, 27 3 2007"
+              }
+            }) }}
+
+            {{ govukSelect({
+              id: "filter-region",
+             name: "filter-regions",
+              label: {
+                     text: "Region"
+             },
+              items: regions,
+              value: data['filter-region']
+             })
+         }}    
+
+
+        {{ govukInput({
+            label: {
+                 text: "Current line manager"
+                },
+                hint: {
+                  text: "We will contact your current line manager to make them aware you are applying to join the network and flag your commitment to attending AAN events within work hours."
+                },
+            id: "Current-line-manager",
+            classes: "govuk-input--width-10",
+            name: "Current-line-manager",
+            value: data['Current-line-manager']
+            }) 
+        }}
+
+        {{ govukInput({
+            label: {
+                 text: "Current line manager email"
+                }, 
+            id: "line-manager-email",
+            name: "line-manager-email",
+            classes: "govuk-!-width-two-thirds",
+            value: data['line-manager-email']
+            }) 
+        }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+            {{ govukTextarea({
+            name: "application-reasons",
+            id: "application-reasons",
+            label: {
+                text: "Please outline why you want to join the network (max 250 characters)"
+            },
+            value: data['application-reasons']
+            }) 
+        }}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+      
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "network-preferences",
+          classes: "base-margin-bottom",
+          fieldset: {
+            legend: {
+              text: "Please select your preferences in supporting the network"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Online",
+              text: "Online Event"
+            },
+            {
+              value: "In Person",
+              text: "In person Events"
+            },
+            {
+              value: "Hybrid",
+              text: "Hybrid Events"
+            },
+            {
+              value: "Case Studies",
+              text: "Case Studies"
+            },
+             {
+              value: "resources and templates",
+              text: "Resources and templates"
+            }
+          ]
+         
+        }) }}
+
+
+             {% from "govuk/components/button/macro.njk" import govukButton %}
+
+           {{ govukButton({
+               text: "Next"
+           })
+         }}
+    
+        </form>
+ 
+
+{% endblock %}
