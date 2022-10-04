@@ -23,7 +23,7 @@ const events = [
         eventId: 1
     },
     {
-        eventTitle: "Clifton High School apprenticeship event",
+        eventTitle: "Network meeting",
         type: "Hybrid",
         date: "Monday 31st October 2022",
         eventDetail: "An opportunity to champion apprenticeships and talk to students about your own journey as an apprentice.",
