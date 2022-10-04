@@ -2,7 +2,7 @@
 {% set cards = [
     {
         title: "Events",
-        subtitle: "Find events most relevant for you and keep track of all the upcoming events you are signed up for.",
+        subtitle: "Find events and meetings most relevant for you and keep track of all the upcoming events you are signed up for.",
         id: "events"
     },
     {
@@ -14,6 +14,11 @@
         title: "Network directory",
         subtitle: "Find other ambassadors to connect with in the AAN.",
         id: "network-directory"
+    }, 
+    {
+        title: "Find an Employer Buddy",
+        subtitle: "Some information here about how the buddy system works.",
+        id: "employer-buddy"
     }, 
     {
         title: "Profile settings",
@@ -81,12 +86,20 @@
             },
             {
             key: {
-                text: "Start date"
+                text: "Network meetings attended"
             },
             value: {
-                html: "September 2022"
+                text: 0
             }
             },
+            {
+                key: {
+                    text: "Next Network meetings"
+                },
+                value: {
+                    text: "31/10/22"
+                }
+                },
             {
             key: {
                 text: "Regions you're active in"
@@ -111,23 +124,14 @@
     </div>
 
     <div class="training-card">
-        <p class="govuk-body-s base-margin-bottom">1.</p>
-            <p class="govuk-body-s base-margin-bottom training-content">Welcome to the AAN Hub</p>
-            <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
+            <p class="govuk-body-s base-margin-bottom training-content">You have <strong>2</strong> upcoming network meetings</p>
+    
 
     </div>
 
     <div class="training-card">
-        <p class="govuk-body-s base-margin-bottom">2.</p>
-        <p class="govuk-body-s base-margin-bottom training-content">Your role</p>
-        <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
-
-    </div>
-
-    <div class="training-card">
-        <p class="govuk-body-s base-margin-bottom">3.</p>
-        <p class="govuk-body-s base-margin-bottom training-content">Events</p>
-         <img class="" src="/public/images/play.png" alt="play" width="20px" height="20px">
+        <p class="govuk-body-s base-margin-bottom training-content">You have <strong>3</strong> feedback forms to complete</p>
+   
 
     </div>
             
