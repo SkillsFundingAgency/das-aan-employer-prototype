@@ -39,32 +39,77 @@
    We would like your feedback on why you're leaving.
   </p>
 
-  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-{{ govukTextarea({
-    name: "leaving-reasons",
-    id: "leaving-reasons",
-    label: {
-        text: "Can you tell us why you are leaving the network?",
-        classes: "govuk-label--s",
-        isPageHeading: false
-    }
-  }) 
-}}
-
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-{{ govukTextarea({
-  name: "leaving-reasons",
-  id: "leaving-reasons",
+{{ govukSelect({
+  id: "reasons",
+  name: "reasons",
   label: {
-    text: "Please provide any feedback on your time with the network",
-    classes: "govuk-label--s",
-    isPageHeading: false
+    text: "Choose location"
   },
-  hint: {
-      text: "Provide details on what you liked and didnt like about the network"
-  }
+  items: [
+    {
+      value: "choose",
+      text: "Choose reason"
+    },
+    {
+      value: "role",
+      text: "Changing role"
+    },
+    {
+      value: "time-commitments",
+      text: "Unable to meet commitments of network"
+    },
+
+    {
+      value: "AAN-not-meeting-needs",
+      text: "AAN no longer meets my needs"
+    },
+    {
+      value: "other",
+      text: "Other"
+    }
+   ]
+
+}) }}
+
+
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "reasons",
+  name: "reasons",
+  label: {
+    text: "How would you rate your time with the network?"
+  },
+  items: [
+    {
+      value: "choose",
+      text: "Choose a rating"
+    },
+    {
+      value: "very-positive",
+      text: "Very positive"
+    },
+    {
+      value: "positive",
+      text: "Positive"
+    },
+    {
+      value: "average",
+      text: "Average"
+      
+    },
+    {
+      value: "disapointing",
+      text: "Disappointing"
+    },
+    {
+      value: "very-disappointing",
+      text: "Very disappointing"
+    }
+   ]
+
 }) }}
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
