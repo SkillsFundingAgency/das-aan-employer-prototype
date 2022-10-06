@@ -76,25 +76,13 @@
              })
          }}    
 
-
-        {{ govukInput({
-            label: {
-                 text: "Your apprentice"
-                },
-                hint: {
-                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
-                },
-            id: "Your-apprentice",
-            classes: "govuk-input--width-10",
-            name: "Your apprentice",
-            value: data['Current-line-manager']
-            }) 
-        }}
-
         {{ govukInput({
             label: {
                  text: "Name of current apprentice"
                 }, 
+                hint: {
+                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
+                },
             id: "name-of-current-apprentice",
             name: "name-of-current-apprentice",
             classes: "govuk-!-width-two-thirds",
