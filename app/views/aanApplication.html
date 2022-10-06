@@ -79,26 +79,26 @@
 
         {{ govukInput({
             label: {
-                 text: "Current line manager"
+                 text: "Your apprentice"
                 },
                 hint: {
-                  text: "We will contact your current line manager to make them aware you are applying to join the network and flag your commitment to attending AAN events within work hours."
+                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
                 },
-            id: "Current-line-manager",
+            id: "Your-apprentice",
             classes: "govuk-input--width-10",
-            name: "Current-line-manager",
+            name: "Your apprentice",
             value: data['Current-line-manager']
             }) 
         }}
 
         {{ govukInput({
             label: {
-                 text: "Current line manager email"
+                 text: "Name of current apprentice"
                 }, 
-            id: "line-manager-email",
-            name: "line-manager-email",
+            id: "name-of-current-apprentice",
+            name: "name-of-current-apprentice",
             classes: "govuk-!-width-two-thirds",
-            value: data['line-manager-email']
+            value: data['name-of-current-apprentice']
             }) 
         }}
 
