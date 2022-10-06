@@ -598,7 +598,7 @@ router.get('/network-directory', (req, res) => {
     
     let filteredProfiles = [...profiles]
 
-    if((filterR == undefined || filterR == 'choose-region') && (filterI == undefined || filterI == 'choose-region') && (filterA == undefined || filterA == 'choose-region')){
+    if((filterR == undefined || filterR == 'choose-region') && (filterI == undefined || filterI == 'choose-industry')){
         filteredProfiles = [...profiles]
     }
     else { 
@@ -607,21 +607,13 @@ router.get('/network-directory', (req, res) => {
             return profile.region == filterR
             })
         }
-        if(filterI && filterI !== 'choose-region'){
+        if(filterI && filterI !== 'choose-industry'){
             filteredProfiles = filteredProfiles.filter(profile => {
                 return profile.industry == filterI
             })
         }
-        console.log(filteredProfiles )
-
-        if(filterA && filterA !== 'choose-region'){
-            filteredProfiles = filteredProfiles.filter(profile => {
-                 return profile.appr == filterA
-            })
-         }
     }
    
-
     console.log(filteredProfiles)
 
     let profileRows = filteredProfiles.map(profile => {
