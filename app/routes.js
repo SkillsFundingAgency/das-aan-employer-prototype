@@ -13,7 +13,7 @@ const events = [
         eventTitle: "Manchester AAN regional meet-up",
         type: "In person",
         date: "Thursday 27th October 2022",
-        eventDetail: "Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
+        eventDetail:"Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
         eventLocation: "north-west",
         eventBuilding: "Manchester Town Hall, Albert square, M2 5DB",
         start: "19:00",
@@ -21,7 +21,22 @@ const events = [
         contact: "rebecca.morrell@aan.com",
         industry: "care-services",
         eventId: 1
-    },
+    
+    }, 
+    {
+        meetingTitle: "South West AAN regional employer meeting",
+        type:"Meeting", 
+        date:"Thursday 3 November",
+        location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
+        eventDetail:"Regional meeting to share current headlines and forward plan AAN activity across November and December.",
+        summary1: "Colleagues will update on recent achievements within the network and map out forthcoming events, case studies and wider AAN activity they have planned.", 
+        summary2:"Ambassadors will also have the opportunity to feedback on the forthcoming national recruitment drive, aiming to engage a new raft of employer ambassadors across England.",
+        start:"15:00",
+        end:"17:00",
+        contact:"sam.kershaw@aan.com",
+        industry:"construction",
+        eventId:2
+    }, 
     {
         eventTitle: "Network meeting",
         type: "Hybrid",
@@ -35,9 +50,23 @@ const events = [
         end: "19:30",
         contact: "rebecca.morrell@aan.com",
         industry: "creative-and-design",
-        eventId: 2
+        eventId: 3
     },
     {
+        meetingTitle: "Plymouth AAN employer meeting",
+        type:"Meeting",
+        date:"Friday 4 November",
+        location: "Lee Moor Public Hall, Plymouth, PL7 5JR",
+        eventDetail:"AAN members meeting to share news from recent events, introduce new ambassadors to regional colleagues and share resource on upcoming network activities.",
+        start:"13:00",
+        end:"15:00",
+        contact:"sam.kershaw@aan.com",
+        industry:"farming",
+        eventId:4
+
+    },
+    {
+
         eventTitle: "AAN Online Case Study Session",
         type: "Online",
         date: "Tuesday 1st November 2022",
@@ -51,42 +80,42 @@ const events = [
         end: "14:30",
         contact: "sam.kershaw@aan.com",
         industry: "construction",
-        eventId: 3
+        eventId: 5
     }, 
     {
-        eventTitle: "Event 4",
+        eventTitle: "Event 6",
         eventDetail: "West Midlands meetup",
         eventLocation: "west-midlands",
         industry: "business-and-administration",
-        eventId: 4
+        eventId: 6
     },
     {
-        eventTitle: "Event 5",
+        eventTitle: "Event 7",
         eventDetail: "Bristol schools event",
         eventLocation: "south-west",
         industry: "care-services",
-        eventId: 5
+        eventId: 7
     }, 
     {
         eventTitle: "London online event",
         eventDetail: "an online monthly catch up ",
         eventLocation: "london",
         industry: "business-and-administration",
-        eventId: 6
+        eventId: 8
     }, 
     {
         eventTitle: "Manchester hybrid event",
         eventDetail: "an online monthly catch up ",
         eventLocation: "north-west",
         industry: "creative-and-design",
-        eventId: 7
+        eventId: 9
     }, 
     {
         eventTitle: "Newcastle hybrid event",
         eventDetail: "an online monthly catch up ",
         eventLocation: "north-east",
         industry: "creative-and-design",
-        eventId: 8
+        eventId: 10
     }, 
 ]
 
