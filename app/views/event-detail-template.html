@@ -135,11 +135,27 @@
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
+    <div id="button-solo" >
+        {{ govukButton({
+            text: buttonText,
+            href: "/success-manage-event"
+            }) 
+        }}
+    </div>
+   
 
-    {{ govukButton({
-        text: "Sign up",
-        href: "/success-manage-event"
-        }) 
-    }}
+ <script> 
+    let buttonSeries = document.querySelector('#button-series')
+    let buttonSolo = document.querySelector('#button-solo')
 
+    // window.onload = function checkSeries(selectedEvent) {
+    //     if(selectedEvent.series){
+    //         buttonSolo.textContent = "Sign up to series"
+    //     }
+    // }
+    
+
+
+</script>   
 {% endblock %}
+

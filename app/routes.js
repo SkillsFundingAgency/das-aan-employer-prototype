@@ -20,11 +20,12 @@ const events = [
         end: "21:00",
         contact: "rebecca.morrell@aan.com",
         industry: "care-services",
+        series: false,
         eventId: 1
     
     }, 
     {
-        meetingTitle: "South West AAN regional employer meeting",
+        eventTitle: "South West AAN regional employer meeting",
         type:"Meeting", 
         date:"Thursday 3 November",
         location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
@@ -35,6 +36,7 @@ const events = [
         end:"17:00",
         contact:"sam.kershaw@aan.com",
         industry:"construction",
+        series: true, 
         eventId:2
     }, 
     {
@@ -50,10 +52,11 @@ const events = [
         end: "19:30",
         contact: "rebecca.morrell@aan.com",
         industry: "creative-and-design",
+        series: true,
         eventId: 3
     },
     {
-        meetingTitle: "Plymouth AAN employer meeting",
+        eventTitle: "Plymouth AAN employer meeting",
         type:"Meeting",
         date:"Friday 4 November",
         location: "Lee Moor Public Hall, Plymouth, PL7 5JR",
@@ -62,11 +65,11 @@ const events = [
         end:"15:00",
         contact:"sam.kershaw@aan.com",
         industry:"farming",
+        series: false,
         eventId:4
 
     },
     {
-
         eventTitle: "AAN Online Case Study Session",
         type: "Online",
         date: "Tuesday 1st November 2022",
@@ -80,6 +83,7 @@ const events = [
         end: "14:30",
         contact: "sam.kershaw@aan.com",
         industry: "construction",
+        series: false,
         eventId: 5
     }, 
     {
@@ -522,7 +526,14 @@ router.get('/event-notifications/:eventid', (req, res) => {
       console.log(selectedEvent)
 
       if(selectedEvent){
-          res.render('event-detail-template', { selectedEvent, members })
+          if(selectedEvent.series){
+              buttonText = "Sign up for Series"
+          }
+          else {
+            buttonText = "Sign up"
+          }
+        
+          res.render('event-detail-template', { selectedEvent, members, buttonText })
       }
       else {
           res.send("sorry no event details")
