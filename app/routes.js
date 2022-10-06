@@ -530,7 +530,7 @@ router.get('/event-notifications/:eventid', (req, res) => {
 
       if(selectedEvent){
           if(selectedEvent.series){
-              buttonText = "Sign up for Series"
+              buttonText = "Sign up for series"
           }
           else {
             buttonText = "Sign up"
