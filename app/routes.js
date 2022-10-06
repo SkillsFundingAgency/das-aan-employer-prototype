@@ -29,6 +29,8 @@ const events = [
         date:"Thursday 3 November",
         location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
         eventDetail:"Regional meeting to share current headlines and forward plan AAN activity across November and December.",
+        summary1: "Colleagues will update on recent achievements within the network and map out forthcoming events, case studies and wider AAN activity they have planned.", 
+        summary2:"Ambassadors will also have the opportunity to feedback on the forthcoming national recruitment drive, aiming to engage a new raft of employer ambassadors across England.",
         start:"15:00",
         end:"17:00",
         contact:"sam.kershaw@aan.com",
@@ -625,7 +627,7 @@ router.get('/network-directory', (req, res) => {
     
     let filteredProfiles = [...profiles]
 
-    if((filterR == undefined || filterR == 'choose-region') && (filterI == undefined || filterI == 'choose-region') && (filterA == undefined || filterA == 'choose-region')){
+    if((filterR == undefined || filterR == 'choose-region') && (filterI == undefined || filterI == 'choose-industry')){
         filteredProfiles = [...profiles]
     }
     else { 
@@ -634,21 +636,13 @@ router.get('/network-directory', (req, res) => {
             return profile.region == filterR
             })
         }
-        if(filterI && filterI !== 'choose-region'){
+        if(filterI && filterI !== 'choose-industry'){
             filteredProfiles = filteredProfiles.filter(profile => {
                 return profile.industry == filterI
             })
         }
-        console.log(filteredProfiles )
-
-        if(filterA && filterA !== 'choose-region'){
-            filteredProfiles = filteredProfiles.filter(profile => {
-                 return profile.appr == filterA
-            })
-         }
     }
    
-
     console.log(filteredProfiles)
 
     let profileRows = filteredProfiles.map(profile => {
