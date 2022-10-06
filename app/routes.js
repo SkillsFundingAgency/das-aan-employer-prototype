@@ -37,6 +37,7 @@ const events = [
         contact:"sam.kershaw@aan.com",
         industry:"construction",
         reccuringMeeting:"This is a recurring meeting, you can add this series to your calendar <a here.</a>",
+        series: true,
         eventId:2
     }, 
     {
@@ -53,6 +54,7 @@ const events = [
         contact: "rebecca.morrell@aan.com",
         industry: "creative-and-design",
         reccuringMeeting:"This is a recurring meeting, you can add this series to your calendar <a here.</a>",
+        series: true,
         eventId: 3
     },
     {
