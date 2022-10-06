@@ -137,11 +137,11 @@ const feedbackForms = [
         feedbackId: 1
     },
     {
-        eventName: "Irlam High School apprenticeship event",
-        eventTitle: "Irlam High School apprenticeship event feedback form",
-        description: "You attended the Irlam High School apprenticeship event on 27 September 2022. Use the event feedback form link to provide feedback and add this event to your network stats table.",
-        location: "Irlam High School",
-        date: "Tuesday 13 September",
+        eventName: "South West AAN regional employer meeting",
+        eventTitle: "South West AAN regional employer meeting feedback form",
+        description: "You attended the South West AAN regional employer meeting on 27 September 2022. Use the event feedback form link to provide feedback and add this event to your network stats table.",
+        location: "Clifton Town Hall",
+        date: "Tuesday 27th September",
         feedbackId: 2
     }
 ]
