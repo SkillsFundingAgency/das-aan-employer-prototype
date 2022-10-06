@@ -61,44 +61,39 @@
 
         {{ govukInput({
             label: {
-                text: "Did the meeting go ahead and
-                stay on agenda?"
+                text: "Number of pupils spoke to"
             },
-            id: "agenda?",
-            name: "agenda?"
+            id: "pupils?",
+            name: "pupils?"
             }) 
         }}
 
         {{ govukInput({
             label: {
-                    text: "Were you able to get the support
-                    you needed from other 
-                    ambassadors / organisations?"
+                    text: "Number of schools visited in person / online"
                 },
-            id: "support",
-            name: "support"
+            id: "schools",
+            name: "schools"
             }) 
         }}
 
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
             {{ govukTextarea({
-            name: "role-at-event",
-            id: "role-at-event",
+            name: "parents",
+            id: "parents",
             label: {
-                text: "What was your main role at
-                the event?"
+                text: "Number of parents spoken to"
             }
             }) 
         }}
 
         {{ govukInput({
             label: {
-                    text: "How many new AAN members
-                    did you meet?"
+                    text: "Number of hours volunteered"
                 },
-            id: "new-members",
-            name: "new-members"
+            id: "hours volunteered",
+            name: "hours volunteered"
             }) 
         }}
     
