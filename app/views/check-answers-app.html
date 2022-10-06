@@ -79,6 +79,57 @@
           },
           {
             key: {
+              text: "Organisation Name"
+            },
+            value: {
+              html: data['organisation-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "organisation name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of employees"
+            },
+            value: {
+              html: data['size-company']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "organisation name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of apprentices"
+            },
+            value: {
+              html: data['apprentices']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "organisation name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Name of current apprentice"
             },
             value: {
@@ -93,6 +144,23 @@
                 }
               ]
             }
+          },
+          {
+            key: {
+              text: "Programme start date"
+            },
+            value: {
+              text: data['start'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "programme start date"
+                }
+              ]
+            }
           }
         ]
       }) }}
@@ -103,6 +171,7 @@
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
+          
           {
             key: {
               text: "Application outline"
@@ -122,21 +191,22 @@
           },
           {
             key: {
-              text: "Network preferences"
+              text: "Current challenges"
             },
             value: {
-              text: data['network-preferences']
+              text: data['challenges']
             },
             actions: {
               items: [
                 {
                   href: "/aanApplication",
                   text: "Change",
-                  visuallyHiddenText: "Network preferences"
+                  visuallyHiddenText: "application outline"
                 }
               ]
             }
           }
+          
         ] 
       })
     }}
