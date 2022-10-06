@@ -20,11 +20,12 @@ const events = [
         end: "21:00",
         contact: "rebecca.morrell@aan.com",
         industry: "care-services",
+        series: false,
         eventId: 1
     
     }, 
     {
-        meetingTitle: "South West AAN regional employer meeting",
+        eventTitle: "South West AAN regional employer meeting",
         type:"Meeting", 
         date:"Thursday 3 November",
         location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
@@ -55,7 +56,7 @@ const events = [
         eventId: 3
     },
     {
-        meetingTitle: "Plymouth AAN employer meeting",
+        eventTitle: "Plymouth AAN employer meeting",
         type:"Meeting",
         date:"Friday 4 November",
         location: "Lee Moor Public Hall, Plymouth, PL7 5JR",
@@ -64,11 +65,11 @@ const events = [
         end:"15:00",
         contact:"sam.kershaw@aan.com",
         industry:"farming",
+        series: false,
         eventId:4
 
     },
     {
-
         eventTitle: "AAN Online Case Study Session",
         type: "Online",
         date: "Tuesday 1st November 2022",
@@ -82,6 +83,7 @@ const events = [
         end: "14:30",
         contact: "sam.kershaw@aan.com",
         industry: "construction",
+        series: false,
         eventId: 5
     }, 
     {
@@ -315,22 +317,23 @@ let profiles = [
         location: "South west",
         region: "south-west",
         city: "Bristol",
-        appr: "Former",
+        appr: 2,
         events: 2,
         date: "17th August 2022",
         industry: "business-and-administration",
         id: 1,
         src: "/public/images/Julian.jpg",
-        email: "apprentice@gov.uk",
+        email: "employer@gov.uk",
         role: "Business administrator",
-        employer: "City Sprint"
+        employer: "City Sprint",
+        
     },
     {
         name: "Leslie Knope",
         location: "North west",
         region: "north-west",
         city: "Manchester",
-        appr: "Current",
+        appr: 1,
         events: 5,
         date: "17th February 2022",
         industry: "care-services",
@@ -345,7 +348,7 @@ let profiles = [
         location: "London",
         region: "london",
         city: "London",
-        appr: "Current",
+        appr: 3,
         events: 0,
         date: "26th May 2022",
         industry: "creative-and-design",
@@ -361,7 +364,7 @@ let profiles = [
         location: "South West",
         region: "south-west",
         city: "Bristol",
-        appr: "Former",
+        appr: 2,
         events: 3,
         date: "26th September 2022",
         industry: "hair-and-beauty",
@@ -377,7 +380,7 @@ let profiles = [
         location: "West Midlands",
         region: "west-midlands",
         city: "Birmingham",
-        appr: "Current",
+        appr: 1,
         events: 3,
         date: "26th September 2022",
         industry: "construction",
@@ -392,7 +395,7 @@ let profiles = [
         location: "North East",
         region: "north-east",
         city: "Barnard Castle",
-        appr: "Current",
+        appr: 1,
         events: 7,
         date: "5th June 2019",
         industry: "agriculture-environmental-and-animal-care",
@@ -408,7 +411,7 @@ let profiles = [
         location: "Yorkshire and Humber",
         region: "yorkshire-and-humber",
         city: "York",
-        appr: "Former",
+        appr: 4,
         events: 7,
         date: "21st March 2021",
         industry: "business-and-administration",
@@ -423,7 +426,7 @@ let profiles = [
         location: "East of England",
         region: "east-of-england",
         city: "Norfolk",
-        appr: "Current",
+        appr: 2,
         events: 1,
         date: "1st September 2020",
         industry: "creative-and-design",
@@ -438,7 +441,7 @@ let profiles = [
         location: "South West",
         region: "south-west",
         city: "Bristol",
-        appr: "Current",
+        appr: 2,
         events: 0,
         date: "31st November 2021",
         industry: "health-and-science",
@@ -453,7 +456,7 @@ let profiles = [
         location: "North East",
         region: "north-east",
         city: "Newcastle",
-        appr: "Current",
+        appr: 1,
         events: 1,
         date: "31st January 2022",
         industry: "hair-and-beauty",
@@ -524,7 +527,14 @@ router.get('/event-notifications/:eventid', (req, res) => {
       console.log(selectedEvent)
 
       if(selectedEvent){
-          res.render('event-detail-template', { selectedEvent, members })
+          if(selectedEvent.series){
+              buttonText = "Sign up for Series"
+          }
+          else {
+            buttonText = "Sign up"
+          }
+        
+          res.render('event-detail-template', { selectedEvent, members, buttonText })
       }
       else {
           res.send("sorry no event details")

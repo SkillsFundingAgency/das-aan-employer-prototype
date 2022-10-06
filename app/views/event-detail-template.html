@@ -135,11 +135,12 @@
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
+        {{ govukButton({
+            text: buttonText,
+            href: "/success-manage-event"
+            }) 
+        }}
 
-    {{ govukButton({
-        text: "Sign up",
-        href: "/success-manage-event"
-        }) 
-    }}
-
+   
 {% endblock %}
+
