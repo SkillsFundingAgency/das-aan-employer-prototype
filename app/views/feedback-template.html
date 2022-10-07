@@ -61,30 +61,10 @@
 
         {{ govukInput({
             label: {
-                text: "Number of pupils spoke to"
+                text: "Did you attend the meeting?"
             },
-            id: "pupils?",
-            name: "pupils?"
-            }) 
-        }}
-
-        {{ govukInput({
-            label: {
-                    text: "Number of schools visited in person / online"
-                },
-            id: "schools",
-            name: "schools"
-            }) 
-        }}
-
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-            {{ govukTextarea({
-            name: "parents",
-            id: "parents",
-            label: {
-                text: "Number of parents spoken to"
-            }
+            id: "attend?",
+            name: "attend?"
             }) 
         }}
 
@@ -94,6 +74,17 @@
                 },
             id: "hours volunteered",
             name: "hours volunteered"
+            }) 
+        }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+            {{ govukTextarea({
+            name: "individuals",
+            id: "individuals",
+            label: {
+                text: "Number of individuals engaged with including; network members, students, teachers"
+            }
             }) 
         }}
     
