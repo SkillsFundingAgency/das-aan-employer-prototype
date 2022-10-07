@@ -79,34 +79,85 @@
           },
           {
             key: {
-              text: "Current line manager"
+              text: "Organisation Name"
             },
             value: {
-             text: data['Current-line-manager']
+              html: data['organisation-name']
             },
             actions: {
               items: [
                 {
                   href: "/aanApplication",
                   text: "Change",
-                  visuallyHiddenText: "contact details"
+                  visuallyHiddenText: "organisation name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Line manager email:"
+              text: "Number of employees"
             },
             value: {
-             text: data['line-manager-email']
+              html: data['size-company']
             },
             actions: {
               items: [
                 {
                   href: "/aanApplication",
                   text: "Change",
-                  visuallyHiddenText: "line manager contact"
+                  visuallyHiddenText: "organisation name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of apprentices"
+            },
+            value: {
+              html: data['apprentices']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "organisation name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name of current apprentice"
+            },
+            value: {
+             text: data['name-of-current-apprentice']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "current apprentice"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Programme start date"
+            },
+            value: {
+              text: data['start'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "programme start date"
                 }
               ]
             }
@@ -120,6 +171,7 @@
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
         rows: [
+          
           {
             key: {
               text: "Application outline"
@@ -139,21 +191,22 @@
           },
           {
             key: {
-              text: "Network preferences"
+              text: "Current challenges"
             },
             value: {
-              text: data['network-preferences']
+              text: data['challenges']
             },
             actions: {
               items: [
                 {
                   href: "/aanApplication",
                   text: "Change",
-                  visuallyHiddenText: "Network preferences"
+                  visuallyHiddenText: "application outline"
                 }
               ]
             }
           }
+          
         ] 
       })
     }}

@@ -58,12 +58,27 @@
         <strong>Event Location:</strong>
         {{selectedEvent.eventBuilding}}
     </p>
-    
-    <div class="flex small-margin-bottom">
+
+    {% if selectedEvent.type == "Hybrid" or selectedEvent.type == "In person" %}
+         
+    <div class="flex base-margin-bottom">
         <img src="/public/images/pin.png" alt="location" height="30px">
 
         <a href="#" class="govuk-body-l govuk-link indent-s">https://goo.gl/maps/hDEMtrUzgn16MWTQ8</a>
     </div>
+
+    {% endif %}
+
+    {% if selectedEvent.type == "Hybrid" or selectedEvent.type == "Online" %}
+
+    <p class="govuk-body-l 
+    medium-margin-bottom">
+            <strong>Online Link:</strong>
+            <a href="#" class="govuk-body-l govuk-link indent-s">https://teams.microsoft.com/meetingOptions/?organizerId=8878620b</a>
+    
+    </p>
+
+    {% endif %}
 
     <p class="govuk-body-l 
              small-margin-bottom">
@@ -101,13 +116,6 @@
                 <strong> Emanuel - Parc and Recs of MCR</strong>
                 
     </p>    
-
-
-    <div class="flex">
-        <img src="/public/images/pin.png" alt="location" height="30px">
-
-        <a href="#" class="govuk-body-l indent-s govuk-link">https://goo.gl/maps/hDEMtrUzgn16MWTQ8</a>
-    </div>
 
 
     <p class="govuk-body-m base-margin-bottom">
