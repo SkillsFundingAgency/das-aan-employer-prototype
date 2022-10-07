@@ -20,6 +20,10 @@
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
     {% from "govuk/components/select/macro.njk" import govukSelect %} 
 
+    <p class="govuk-body-m">
+      Your details:
+     </p>
+
         {{ govukInput({
             label: {
                 text: "Full Name"
@@ -65,6 +69,17 @@
               }
             }) }}
 
+            {{ govukInput({
+              label: {
+                  text: "Email"
+              },
+              id: "email",
+              name: "email",
+              classes: "govuk-!-width-two-thirds",
+              value: data['email']
+              }) 
+          }}
+
             {{ govukSelect({
               id: "filter-region",
              name: "filter-regions",
@@ -75,6 +90,10 @@
               value: data['filter-region']
              })
          }}    
+
+         <p class="govuk-body-m">
+          About your Organisation:
+         </p>
 
          {{ govukInput({
           label: {
@@ -109,17 +128,37 @@
         }) 
     }}
 
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      classes: "govuk-radios--small",
+      name: "main-contact",
+      fieldset: {
+        legend: {
+          text: "Are you the main contact for AAN at your organisation?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
         {{ govukInput({
             label: {
-                 text: "Name of current apprentice"
+                 text: Sector"
                 }, 
-                hint: {
-                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
-                },
-            id: "name-of-current-apprentice",
-            name: "name-of-current-apprentice",
+            id: "sector",
+            name: "sector",
             classes: "govuk-!-width-two-thirds",
-            value: data['name-of-current-apprentice']
+            value: data['sector']
             }) 
         }}
 
@@ -129,7 +168,7 @@
           namePrefix: "[start]",
           fieldset: {
             legend: {
-              text: "When did you start your apprentice programme?"
+              text: "When did your organisation start your apprentice programme?"
             }
           },
           items: [
