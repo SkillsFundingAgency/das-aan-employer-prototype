@@ -19,8 +19,10 @@
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
     {% from "govuk/components/select/macro.njk" import govukSelect %} 
+    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-    <p class="govuk-body-m">
+    <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
       Your details:
      </p>
 
@@ -83,6 +85,7 @@
             {{ govukSelect({
               id: "filter-region",
              name: "filter-regions",
+             classes: "medium-margin-bottom",
               label: {
                      text: "Region"
              },
@@ -91,7 +94,7 @@
              })
          }}    
 
-         <p class="govuk-body-m">
+         <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
           About your Organisation:
          </p>
 
@@ -128,15 +131,14 @@
         }) 
     }}
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
 
     {{ govukRadios({
       classes: "govuk-radios--small",
       name: "main-contact",
-      fieldset: {
+      fieldset: { 
         legend: {
-          text: "Are you the main contact for AAN at your organisation?",
-          classes: "govuk-fieldset__legend--m"
+          text: "Are you the main contact for AAN at your organisation?"
         }
       },
       items: [
@@ -153,7 +155,7 @@
 
         {{ govukInput({
             label: {
-                 text: Sector"
+                 text: "Sector"
                 }, 
             id: "sector",
             name: "sector",
@@ -166,6 +168,7 @@
         {{ govukDateInput({
           id: "start",
           namePrefix: "[start]",
+          classes: "medium-margin-bottom",
           fieldset: {
             legend: {
               text: "When did your organisation start your apprentice programme?"
@@ -196,9 +199,11 @@
           }
         }) }}
 
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
+          Application outline:
+         </p>
 
-            {{ govukTextarea({
+        {{ govukTextarea({
             name: "application-reasons",
             id: "application-reasons",
             label: {
@@ -220,7 +225,7 @@
       }}
               
 
-             {% from "govuk/components/button/macro.njk" import govukButton %}
+       {% from "govuk/components/button/macro.njk" import govukButton %}
 
            {{ govukButton({
                text: "Next"
