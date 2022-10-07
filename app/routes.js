@@ -14,6 +14,7 @@ const events = [
         type: "In person",
         date: "Thursday 27th October 2022",
         eventDetail:"Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
+        summary1: "Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
         eventLocation: "north-west",
         eventBuilding: "Manchester Town Hall, Albert square, M2 5DB",
         start: "19:00",
@@ -26,9 +27,10 @@ const events = [
     }, 
     {
         eventTitle: "South West AAN regional employer meeting",
-        type:"Meeting", 
+        type:"In person", 
         date:"Thursday 3 November",
-        location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
+        location:"south-west",
+        eventBuilding: "Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
         eventDetail:"Regional meeting to share current headlines and forward plan AAN activity across November and December.",
         summary1: "Colleagues will update on recent achievements within the network and map out forthcoming events, case studies and wider AAN activity they have planned.", 
         summary2:"Ambassadors will also have the opportunity to feedback on the forthcoming national recruitment drive, aiming to engage a new raft of employer ambassadors across England.",
@@ -59,9 +61,10 @@ const events = [
     },
     {
         eventTitle: "Plymouth AAN employer meeting",
-        type:"Meeting",
+        type:"In Person",
         date:"Friday 4 November",
-        location: "Lee Moor Public Hall, Plymouth, PL7 5JR",
+        eventLocation: "south-west",
+        eventBuilding: "Lee Moor Public Hall, Plymouth, PL7 5JR",
         eventDetail:"AAN members meeting to share news from recent events, introduce new ambassadors to regional colleagues and share resource on upcoming network activities.",
         start:"13:00",
         end:"15:00",
@@ -90,9 +93,13 @@ const events = [
     }, 
     {
         eventTitle: "Event 6",
+        type: "Online",
+        date: "Tuesday 1st November 2022",
         eventDetail: "West Midlands meetup",
         eventLocation: "west-midlands",
+        eventBuilding: "Join event online via Zoom or Teams",
         industry: "business-and-administration",
+        series: false,
         eventId: 6
     },
     {
