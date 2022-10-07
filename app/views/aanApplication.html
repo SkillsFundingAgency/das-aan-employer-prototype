@@ -76,31 +76,86 @@
              })
          }}    
 
+         {{ govukInput({
+          label: {
+               text: "Organisation name"
+              }, 
+          id: "organisation-name",
+          name: "organisation-name",
+          classes: "govuk-!-width-two-thirds",
+          value: data['organisation-name']
+          }) 
+      }}
 
-        {{ govukInput({
-            label: {
-                 text: "Your apprentice"
-                },
-                hint: {
-                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
-                },
-            id: "Your-apprentice",
-            classes: "govuk-input--width-10",
-            name: "Your apprentice",
-            value: data['Current-line-manager']
-            }) 
-        }}
+         {{ govukInput({
+          label: {
+               text: "How many employees work in your organisation?"
+              }, 
+          id: "size-company",
+          name: "size-company",
+          classes: "govuk-input--width-3",
+          value: data['size-company']
+          }) 
+      }}
+
+      {{ govukInput({
+        label: {
+             text: "How many apprentices do you have in your organisation?"
+            }, 
+        id: "apprentices",
+        name: "apprentices",
+        classes: "govuk-input--width-3",
+        value: data['apprentices']
+        }) 
+    }}
 
         {{ govukInput({
             label: {
                  text: "Name of current apprentice"
                 }, 
+                hint: {
+                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
+                },
             id: "name-of-current-apprentice",
             name: "name-of-current-apprentice",
             classes: "govuk-!-width-two-thirds",
             value: data['name-of-current-apprentice']
             }) 
         }}
+
+
+        {{ govukDateInput({
+          id: "start",
+          namePrefix: "[start]",
+          fieldset: {
+            legend: {
+              text: "When did you start your apprentice programme?"
+            }
+          },
+          items: [
+              {
+                name: "day",
+                id: "day",
+                classes: "govuk-input--width-2",
+                value: data['start-day']
+              },
+              {
+                name: "month",
+                id: "month",
+                classes: "govuk-input--width-2",
+                value: data['start-month']
+              },
+              {
+                name: "year",
+                id: "year",
+                classes: "govuk-input--width-4",
+                value: data['start-year']
+              }
+          ],
+          hint: {
+            text: "For example, 27 3 2019"
+          }
+        }) }}
 
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
@@ -114,48 +169,17 @@
             }) 
         }}
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-
-      
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-        {{ govukCheckboxes({
-          name: "network-preferences",
-          classes: "base-margin-bottom",
-          fieldset: {
-            legend: {
-              text: "Please select your preferences in supporting the network"
-            }
+        {{ govukTextarea({
+          name: "challenges",
+          id: "challenges",
+          rows: 3,
+          label: {
+              text: "What are your challenges related to apprenticeships?"
           },
-          hint: {
-            text: "Select all that apply."
-          },
-          items: [
-            {
-              value: "Online",
-              text: "Online Event"
-            },
-            {
-              value: "In Person",
-              text: "In person Events"
-            },
-            {
-              value: "Hybrid",
-              text: "Hybrid Events"
-            },
-            {
-              value: "Case Studies",
-              text: "Case Studies"
-            },
-             {
-              value: "resources and templates",
-              text: "Resources and templates"
-            }
-          ]
-         
-        }) }}
-
+          value: data['challenges']
+          }) 
+      }}
+              
 
              {% from "govuk/components/button/macro.njk" import govukButton %}
 

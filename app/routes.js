@@ -14,20 +14,23 @@ const events = [
         type: "In person",
         date: "Thursday 27th October 2022",
         eventDetail:"Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
+        summary1: "Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
         eventLocation: "north-west",
         eventBuilding: "Manchester Town Hall, Albert square, M2 5DB",
         start: "19:00",
         end: "21:00",
         contact: "rebecca.morrell@aan.com",
         industry: "care-services",
+        series: false,
         eventId: 1
     
     }, 
     {
-        meetingTitle: "South West AAN regional employer meeting",
-        type:"Meeting", 
+        eventTitle: "South West AAN regional employer meeting",
+        type:"In person", 
         date:"Thursday 3 November",
-        location:"Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
+        location:"south-west",
+        eventBuilding: "Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
         eventDetail:"Regional meeting to share current headlines and forward plan AAN activity across November and December.",
         summary1: "Colleagues will update on recent achievements within the network and map out forthcoming events, case studies and wider AAN activity they have planned.", 
         summary2:"Ambassadors will also have the opportunity to feedback on the forthcoming national recruitment drive, aiming to engage a new raft of employer ambassadors across England.",
@@ -36,6 +39,7 @@ const events = [
         contact:"sam.kershaw@aan.com",
         industry:"construction",
         reccuringMeeting:"This is a recurring meeting, you can add this series to your calendar <a here.</a>",
+        series: true,
         eventId:2
     }, 
     {
@@ -52,23 +56,25 @@ const events = [
         contact: "rebecca.morrell@aan.com",
         industry: "creative-and-design",
         reccuringMeeting:"This is a recurring meeting, you can add this series to your calendar <a here.</a>",
+        series: true,
         eventId: 3
     },
     {
-        meetingTitle: "Plymouth AAN employer meeting",
-        type:"Meeting",
+        eventTitle: "Plymouth AAN employer meeting",
+        type:"In Person",
         date:"Friday 4 November",
-        location: "Lee Moor Public Hall, Plymouth, PL7 5JR",
+        eventLocation: "south-west",
+        eventBuilding: "Lee Moor Public Hall, Plymouth, PL7 5JR",
         eventDetail:"AAN members meeting to share news from recent events, introduce new ambassadors to regional colleagues and share resource on upcoming network activities.",
         start:"13:00",
         end:"15:00",
         contact:"sam.kershaw@aan.com",
         industry:"farming",
+        series: false,
         eventId:4
 
     },
     {
-
         eventTitle: "AAN Online Case Study Session",
         type: "Online",
         date: "Tuesday 1st November 2022",
@@ -82,13 +88,18 @@ const events = [
         end: "14:30",
         contact: "sam.kershaw@aan.com",
         industry: "construction",
+        series: false,
         eventId: 5
     }, 
     {
         eventTitle: "Event 6",
+        type: "Online",
+        date: "Tuesday 1st November 2022",
         eventDetail: "West Midlands meetup",
         eventLocation: "west-midlands",
+        eventBuilding: "Join event online via Zoom or Teams",
         industry: "business-and-administration",
+        series: false,
         eventId: 6
     },
     {
@@ -133,11 +144,11 @@ const feedbackForms = [
         feedbackId: 1
     },
     {
-        eventName: "Irlam High School apprenticeship event",
-        eventTitle: "Irlam High School apprenticeship event feedback form",
-        description: "You attended the Irlam High School apprenticeship event on 27 September 2022. Use the event feedback form link to provide feedback and add this event to your network stats table.",
-        location: "Irlam High School",
-        date: "Tuesday 13 September",
+        eventName: "South West AAN regional employer meeting",
+        eventTitle: "South West AAN regional employer meeting feedback form",
+        description: "You attended the South West AAN regional employer meeting on 27 September 2022. Use the event feedback form link to provide feedback and add this event to your network stats table.",
+        location: "Clifton Town Hall",
+        date: "Tuesday 27th September",
         feedbackId: 2
     }
 ]
@@ -315,22 +326,23 @@ let profiles = [
         location: "South west",
         region: "south-west",
         city: "Bristol",
-        appr: "Former",
+        appr: 2,
         events: 2,
         date: "17th August 2022",
         industry: "business-and-administration",
         id: 1,
         src: "/public/images/Julian.jpg",
-        email: "apprentice@gov.uk",
+        email: "employer@gov.uk",
         role: "Business administrator",
-        employer: "City Sprint"
+        employer: "City Sprint",
+        
     },
     {
         name: "Leslie Knope",
         location: "North west",
         region: "north-west",
         city: "Manchester",
-        appr: "Current",
+        appr: 1,
         events: 5,
         date: "17th February 2022",
         industry: "care-services",
@@ -345,7 +357,7 @@ let profiles = [
         location: "London",
         region: "london",
         city: "London",
-        appr: "Current",
+        appr: 3,
         events: 0,
         date: "26th May 2022",
         industry: "creative-and-design",
@@ -361,7 +373,7 @@ let profiles = [
         location: "South West",
         region: "south-west",
         city: "Bristol",
-        appr: "Former",
+        appr: 2,
         events: 3,
         date: "26th September 2022",
         industry: "hair-and-beauty",
@@ -377,7 +389,7 @@ let profiles = [
         location: "West Midlands",
         region: "west-midlands",
         city: "Birmingham",
-        appr: "Current",
+        appr: 1,
         events: 3,
         date: "26th September 2022",
         industry: "construction",
@@ -392,7 +404,7 @@ let profiles = [
         location: "North East",
         region: "north-east",
         city: "Barnard Castle",
-        appr: "Current",
+        appr: 1,
         events: 7,
         date: "5th June 2019",
         industry: "agriculture-environmental-and-animal-care",
@@ -408,7 +420,7 @@ let profiles = [
         location: "Yorkshire and Humber",
         region: "yorkshire-and-humber",
         city: "York",
-        appr: "Former",
+        appr: 4,
         events: 7,
         date: "21st March 2021",
         industry: "business-and-administration",
@@ -423,7 +435,7 @@ let profiles = [
         location: "East of England",
         region: "east-of-england",
         city: "Norfolk",
-        appr: "Current",
+        appr: 2,
         events: 1,
         date: "1st September 2020",
         industry: "creative-and-design",
@@ -438,7 +450,7 @@ let profiles = [
         location: "South West",
         region: "south-west",
         city: "Bristol",
-        appr: "Current",
+        appr: 2,
         events: 0,
         date: "31st November 2021",
         industry: "health-and-science",
@@ -453,7 +465,7 @@ let profiles = [
         location: "North East",
         region: "north-east",
         city: "Newcastle",
-        appr: "Current",
+        appr: 1,
         events: 1,
         date: "31st January 2022",
         industry: "hair-and-beauty",
@@ -524,7 +536,14 @@ router.get('/event-notifications/:eventid', (req, res) => {
       console.log(selectedEvent)
 
       if(selectedEvent){
-          res.render('event-detail-template', { selectedEvent, members })
+          if(selectedEvent.series){
+              buttonText = "Sign up for series"
+          }
+          else {
+            buttonText = "Sign up"
+          }
+        
+          res.render('event-detail-template', { selectedEvent, members, buttonText })
       }
       else {
           res.send("sorry no event details")
