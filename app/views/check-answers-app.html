@@ -62,6 +62,23 @@
           },
           {
             key: {
+              text: "Email"
+            },
+            value: {
+              html: data['email']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Region"
             },
             value: {
@@ -130,10 +147,27 @@
           },
           {
             key: {
-              text: "Name of current apprentice"
+              text: "Main Contact"
             },
             value: {
-             text: data['name-of-current-apprentice']
+             text: data['main-contact']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/aanApplication",
+                  text: "Change",
+                  visuallyHiddenText: "current apprentice"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Sector"
+            },
+            value: {
+             text: data['sector']
             },
             actions: {
               items: [

@@ -19,6 +19,12 @@
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
     {% from "govuk/components/select/macro.njk" import govukSelect %} 
+    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
+      Your details:
+     </p>
 
         {{ govukInput({
             label: {
@@ -65,9 +71,21 @@
               }
             }) }}
 
+            {{ govukInput({
+              label: {
+                  text: "Email"
+              },
+              id: "email",
+              name: "email",
+              classes: "govuk-!-width-two-thirds",
+              value: data['email']
+              }) 
+          }}
+
             {{ govukSelect({
               id: "filter-region",
              name: "filter-regions",
+             classes: "medium-margin-bottom",
               label: {
                      text: "Region"
              },
@@ -75,6 +93,10 @@
               value: data['filter-region']
              })
          }}    
+
+         <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
+          About your Organisation:
+         </p>
 
          {{ govukInput({
           label: {
@@ -109,17 +131,36 @@
         }) 
     }}
 
+  
+
+    {{ govukRadios({
+      classes: "govuk-radios--small",
+      name: "main-contact",
+      fieldset: { 
+        legend: {
+          text: "Are you the main contact for AAN at your organisation?"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
         {{ govukInput({
             label: {
-                 text: "Name of current apprentice"
+                 text: "Sector"
                 }, 
-                hint: {
-                  text: "If you line manage an apprentice and they apply to join the network, you will be notified prior to their application being approved. Your apprentice signing up to be an ambassador means they will be making a commitment to support AAN events, which may be in work time."
-                },
-            id: "name-of-current-apprentice",
-            name: "name-of-current-apprentice",
+            id: "sector",
+            name: "sector",
             classes: "govuk-!-width-two-thirds",
-            value: data['name-of-current-apprentice']
+            value: data['sector']
             }) 
         }}
 
@@ -127,9 +168,10 @@
         {{ govukDateInput({
           id: "start",
           namePrefix: "[start]",
+          classes: "medium-margin-bottom",
           fieldset: {
             legend: {
-              text: "When did you start your apprentice programme?"
+              text: "When did your organisation start your apprentice programme?"
             }
           },
           items: [
@@ -157,9 +199,11 @@
           }
         }) }}
 
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
+          Application outline:
+         </p>
 
-            {{ govukTextarea({
+        {{ govukTextarea({
             name: "application-reasons",
             id: "application-reasons",
             label: {
@@ -181,7 +225,7 @@
       }}
               
 
-             {% from "govuk/components/button/macro.njk" import govukButton %}
+       {% from "govuk/components/button/macro.njk" import govukButton %}
 
            {{ govukButton({
                text: "Next"

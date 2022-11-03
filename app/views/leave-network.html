@@ -40,6 +40,18 @@
   </p>
 
   {% from "govuk/components/select/macro.njk" import govukSelect %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {{ govukInput({
+    label: {
+         text: "How long have you been a member of the network?"
+        }, 
+    id: "length-time",
+    name: "length-time",
+    classes: "govuk-!-width-two-thirds",
+    value: data['length-time']
+    }) 
+}}
 
 {{ govukSelect({
   id: "reasons",
@@ -68,6 +80,10 @@
     {
       value: "other",
       text: "Other"
+    },
+    {
+      value: "prefer-not-to-say",
+      text: "Prefer not to say"
     }
    ]
 
