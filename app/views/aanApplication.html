@@ -38,39 +38,7 @@
         }}
 
 
-            {{ govukDateInput({
-              id: "date-of-birth",
-              namePrefix: "[date-of-birth]",
-              fieldset: {
-                legend: {
-                  text: "Enter your date of birth"
-                }
-              },
-              items: [
-                  {
-                    name: "day",
-                    id: "day",
-                    classes: "govuk-input--width-2",
-                    value: data['date-of-birth-day']
-                  },
-                  {
-                    name: "month",
-                    id: "month",
-                    classes: "govuk-input--width-2",
-                    value: data['date-of-birth-month']
-                  },
-                  {
-                    name: "year",
-                    id: "year",
-                    classes: "govuk-input--width-4",
-                    value: data['date-of-birth-year']
-                  }
-              ],
-              hint: {
-                text: "For example, 27 3 2007"
-              }
-            }) }}
-
+            
             {{ govukInput({
               label: {
                   text: "Email"
