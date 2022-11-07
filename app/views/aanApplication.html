@@ -37,8 +37,6 @@
             }) 
         }}
 
-
-            
             {{ govukInput({
               label: {
                   text: "Email"
@@ -163,35 +161,55 @@
               }
           ],
           hint: {
-            text: "For example, 27 3 2019"
+            html: "<p>For example, 27 3 2019.<br> If you do not know the exact start date, put the first of the first of the month followed by the month and year.</p>"
           }
-          {text: "If you do not know the exact start date, put the first of the first of the month followed by the month and year."
-          },
         }) }}
 
         <p class="govuk-body-l govuk-!-font-weight-bold base-margin-bottom">
           Application outline:
          </p>
 
-        {{ govukTextarea({
-            name: "application-reasons",
-            id: "application-reasons",
-            label: {
-                text: "Please outline why you want to join the network (max 250 characters)"
-            },
-            value: data['application-reasons']
-            }) 
-        }}
+         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
-        {{ govukTextarea({
-          name: "challenges",
-          id: "challenges",
-          rows: 3,
-          label: {
-              text: "What are your challenges related to apprenticeships?"
-          },
-          value: data['challenges']
-          }) 
+        {{ govukCharacterCount({
+        name: "with-hint",
+        id: "with-hint",
+        maxlength: 500,
+        label: {
+          text: "Please outline why you want to join the network (max 250 characters)",
+          classes: "govuk-body-m",
+          isPageHeading: true
+        },
+        value: data['application-reasons']
+        }) 
+      }}
+
+      {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+        {{ govukCharacterCount({
+        name: "with-hint",
+        id: "with-hint",
+        maxlength: 5000,
+        label: {
+          text: "What would you like to gain from the network?",
+          classes: "govuk-body-m",
+          isPageHeading: true
+        },
+        value: data['application-reasons']
+        }) 
+      }}
+
+      {{ govukCharacterCount({
+        name: "with-hint",
+        id: "with-hint",
+        maxlength: 500,
+        label: {
+          text: "What are your challenges related to apprenticeships?",
+          classes: "govuk-body-m",
+          isPageHeading: true
+        },
+        value: data['application-reasons']
+        }) 
       }}
               
 

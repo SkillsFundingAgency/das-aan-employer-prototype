@@ -44,7 +44,7 @@ const events = [
     }, 
     {
         eventTitle: "Network meeting",
-        form: "Hyrid"
+        form: "Hyrid",
         type: "Network meeting",
         date: "Monday 31st October 2022",
         eventDetail: "An opportunity to champion apprenticeships and talk to students about your own journey as an apprentice.",
