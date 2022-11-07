@@ -176,9 +176,9 @@
         id: "with-hint",
         maxlength: 500,
         label: {
-          text: "Please outline why you want to join the network (max 250 characters)",
+          text: "Please outline why you want to join the network (max 500 characters)",
           classes: "govuk-body-m",
-          isPageHeading: true
+          isPageHeading: false
         },
         value: data['application-reasons']
         }) 
@@ -188,27 +188,27 @@
 
         {{ govukCharacterCount({
         name: "with-hint",
-        id: "with-hint",
-        maxlength: 5000,
+        id: "gain",
+        maxlength: 500,
         label: {
           text: "What would you like to gain from the network?",
           classes: "govuk-body-m",
-          isPageHeading: true
+          isPageHeading: false
         },
-        value: data['application-reasons']
+        value: data['gain']
         }) 
       }}
 
       {{ govukCharacterCount({
         name: "with-hint",
-        id: "with-hint",
+        id: "challenges",
         maxlength: 500,
         label: {
           text: "What are your challenges related to apprenticeships?",
           classes: "govuk-body-m",
           isPageHeading: true
         },
-        value: data['application-reasons']
+        value: data['challenges']
         }) 
       }}
               
