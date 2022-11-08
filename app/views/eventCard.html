@@ -1,9 +1,28 @@
-<div class="content-card">
-    <a 
-        href="event-notifications/{{event.eventId}}">
+<div class="new-content content-card">
+    <a href="event-notifications/{{event.eventId}}">
     
-        <h3 class="govuk-heading-m hyperlink base-margin">{{event.eventTitle}}</h3></a>
-    <span class="govuk-body-l">{{event.eventDetail}}</span>
+        <h3 class="govuk-heading-m hyperlink base-margin">{{event.eventTitle}}</h3>
+    </a>
+
+    {% if event.type == "Hybrid" %}
+        <div class="cardInfo hybrid">
+    {% elseif event.type == "Online" %}
+        <div class="cardInfo online">   
+     {% elseif event.type == "In person" %}
+        <div class="cardInfo inPerson">    
+     {% else %}
+         <div class="cardInfo">    
+    {% endif %}
+    <p class="govuk-body-m card-p">{{event.type}}</p>
+        </div>
+
+    <div class="">
+        <p class="govuk-body-l">{{event.eventDetail}}</p>
+        <p class="govuk-body-m card-p">Event Time: {{event.time}}</p>
+    </div>
+
+    <div class="govuk-body-m cardInfo1">
+        <p class="colorDate text">{{event.date}}</p>
+     </div>
+     
 </div>
-
-

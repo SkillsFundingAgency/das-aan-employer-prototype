@@ -210,6 +210,33 @@ items: [
         
         }}
 
+        {{ govukRadios({
+          classes: "govuk-radios--small flex",
+          name: "Apprentice awards and apprentice week ",
+          formGroup: {
+              classes: "flex"
+          },
+          fieldset: {
+              classes: "flex",
+              legend: {
+              text: "Apprentice awards and apprentice week",
+              classes: ""
+              }
+          },
+          items: [
+              {
+              value: "yes",
+              text: "Yes"
+              },
+              {
+              value: "no",
+              text: "No"
+              }
+          ]
+          })
+          
+          }}
+
         
         <h3 class="govuk-heading-m hyperlink base-margin">
             I prefer the AAN to contact me by:

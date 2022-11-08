@@ -119,16 +119,21 @@
       ]
     }) }}
 
-        {{ govukInput({
-            label: {
-                 text: "Sector"
-                }, 
-            id: "sector",
-            name: "sector",
-            classes: "govuk-!-width-two-thirds",
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "Sector",
+          fieldset: {
+            legend: {
+              text: "Which sector(s) are your apprenticeships in?"
+            },
             value: data['sector']
-            }) 
-        }}
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: industries
+        }) }}
 
 
         {{ govukDateInput({
@@ -161,7 +166,7 @@
               }
           ],
           hint: {
-            html: "<p>For example, 27 3 2019.<br> If you do not know the exact start date, put the first of the first of the month followed by the month and year.</p>"
+            html: "<p>For example, 27 3 2019.<br> If you do not know the exact start date, put the first of the month followed by the month and year.</p>"
           }
         }) }}
 

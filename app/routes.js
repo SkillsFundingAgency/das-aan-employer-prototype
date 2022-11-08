@@ -12,9 +12,13 @@ const events = [
     {
         eventTitle: "Manchester AAN regional meet-up",
         type: "In person",
-        date: "Thursday 27th October 2022",
-        eventDetail:"Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
-        summary1: "Join AAN colleagues across your region toupdate on recent activity, share insight and celebrate achievements.",
+        format: "Meeting: single event",
+        time: "19:00-21:00",
+        date: "27th October 2022",
+        eventDetail: "Join regional AAN colleagues at Manchester Town Hall to share your recent activity within the network.",
+        summary1: "Fellow ambassadors will talk about their experience at recent events. There will be an insight sharing session, guest speakers and an opportunity to network with colleagues who are new to the network.", 
+        summary2: "For those wishing to present, please contact Sam Kershaw prior to Tuesday 25 October outlining your case studies and how long you need allocating in the agenda.",
+        summary3: "*please note: this session will be recorded for those who are unable to attend.", 
         eventLocation: "north-west",
         eventBuilding: "Manchester Town Hall, Albert square, M2 5DB",
         start: "19:00",
@@ -28,7 +32,9 @@ const events = [
     {
         eventTitle: "South West AAN regional employer meeting",
         type:"In person", 
-        date:"Thursday 3 November",
+        date:"3rd November 2022",
+        format: "Meeting: series",
+        time: "15:00-17:00",
         location:"south-west",
         eventBuilding: "Exeter Guild Hall, 203 High St, Exeter EX4 3EB",
         eventDetail:"Regional meeting to share current headlines and forward plan AAN activity across November and December.",
@@ -44,9 +50,10 @@ const events = [
     }, 
     {
         eventTitle: "Network meeting",
-        form: "Hyrid",
-        type: "Network meeting",
-        date: "Monday 31st October 2022",
+        type: "Hybrid",
+        format: "Network Meeting: series",
+        time: "17:00-19:30",
+        date: "31st October 2022",
         eventDetail: "An opportunity to champion apprenticeships and talk to students about your own journey as an apprentice.",
         summary1: "An opportunity to champion apprenticeships and talk to students at Clifton High School about your own journey as an apprentice.", 
         summary2: "Share the biggest challenges you have faced, your success stories and inspire those who are considering an apprenticeship as the next step in their career.",
@@ -63,7 +70,9 @@ const events = [
     {
         eventTitle: "Plymouth AAN employer meeting",
         type:"In Person",
-        date:"Friday 4 November",
+        format: "Network Meeting: single event",
+        time: "13:00-15:00",
+        date:"4th November 2022",
         eventLocation: "south-west",
         eventBuilding: "Lee Moor Public Hall, Plymouth, PL7 5JR",
         eventDetail:"AAN members meeting to share news from recent events, introduce new ambassadors to regional colleagues and share resource on upcoming network activities.",
@@ -78,7 +87,9 @@ const events = [
     {
         eventTitle: "AAN Online Case Study Session",
         type: "Online",
-        date: "Tuesday 1st November 2022",
+        format: "Case Study: single event",
+        time: "13:00-15:00",
+        date: "21st November 2022",
         eventDetail: "Share your own case studies with colleagues across the region.",
         summary1: "Share your current case studies with AAN colleagues across your region and stay up to date with recent activity within the network.", 
         summary2: "For those wishing to present, please contact Sam Kershaw prior to Tuesday 25 October outlining your case studies and how long you need allocating in the agenda.",
@@ -95,7 +106,9 @@ const events = [
     {
         eventTitle: "Event 6",
         type: "Online",
-        date: "Tuesday 1st November 2022",
+        format: "Network Meeting: series",
+        time: "17:00-19:30",
+        date: "1st November 2022",
         eventDetail: "West Midlands meetup",
         eventLocation: "west-midlands",
         eventBuilding: "Join event online via Zoom or Teams",
@@ -105,13 +118,20 @@ const events = [
     },
     {
         eventTitle: "Event 7",
+        type: "Online",
+        format: "Network Meeting: series",
+        time: "17:00-19:30",
         eventDetail: "Bristol schools event",
         eventLocation: "south-west",
         industry: "care-services",
+        series: true,
         eventId: 7
     }, 
     {
         eventTitle: "London online event",
+        type: "Online",
+        format: "Network Meeting: single events",
+        time: "17:00-19:30",
         eventDetail: "an online monthly catch up ",
         eventLocation: "london",
         industry: "business-and-administration",
@@ -119,6 +139,9 @@ const events = [
     }, 
     {
         eventTitle: "Manchester hybrid event",
+        type: "Online",
+        format: "Network Meeting",
+        time: "17:00-19:30",
         eventDetail: "an online monthly catch up ",
         eventLocation: "north-west",
         industry: "creative-and-design",
@@ -126,6 +149,9 @@ const events = [
     }, 
     {
         eventTitle: "Newcastle hybrid event",
+        type: "Online",
+        format: "Network Meeting",
+        time: "17:00-19:30",
         eventDetail: "an online monthly catch up ",
         eventLocation: "north-east",
         industry: "creative-and-design",
@@ -220,86 +246,137 @@ let regions = [
     },
   ]
 
-let industries = [
+  let dates = [
     {
-        value: "choose-industry",
-        text: "Choose a sector",
+        value: "filter-by-event-date",
+        text: "Filter by event date",
         selected: false
-      },
+    },
+    {
+        value: "this-week",
+        text: "This week",
+        selected: false
+    },
+    {
+        value: "this-month",
+        text: "This month",
+        selected: false
+    },
+    {
+        value: "next-3-months",
+        text: "The Next 3 Months",
+        selected: false
+    }
+]
+
+let eventType = [
+    {
+        value: "Choose-event-type",
+        text: "Choose event type",
+        selected: false
+    },
+    {
+        value: "ASK-event",
+        text: "ASK event",
+        selected: false
+    },
+    {
+        value: "Training",
+        text: "Training",
+        selected: false
+    },
+    {
+        value: "Meeting",
+        text: "Meeting",
+        selected: false
+    },
+    {
+        value: "AAN-organised-event",
+        text: "AAN organised event",
+        selected: false
+    },
+    {
+        value: "Social / Networking activity",
+        text: "Social / Networking activity",
+        selected: false
+    },
+
+]
+let industries = [
       {
         value: "business-and-administration",
         text: "Business and administration",
-        selected: false
+        checked: false
       },
       {
         value: "creative-and-design",
         text: "Creative and design",
-        selected: false
+        checked: false
       },
       {
         value: "health-and-science",
         text: "Health and science",
-        selected: false
+        checked: false
       },
       {
         value: "care-services",
         text: "Care-services",
-        selected: false
+        checked: false
       },
       {
           value: "sales-marketing-and-procurement",
           text: "Sales, marketing and procurement",
-          selected: false
+          checked: false
       },
       {
           value: "transport-and-logistics",
           text: "Transport and logistics",
-          selected: false
+          checked: false
         },
       {
           value: "legal-finance-and-accounting",
           text: "Legal, finance and accounting",
-          selected: false
+          checked: false
       },
       {
           value: "protective-services",
           text: "Protective services",
-          selected: false
+          checked: false
       },
       {
           value: "catering-and-hospitality",
           text: "Catering and hospitality",
-          selected: false
+          checked: false
       },
       {
         value: "digital",
         text: "Digital",
-        selected: false
+        checked: false
         },
     {
         value: "engineering-and-manufacturing",
         text: "Engineering and manufacturing",
-        selected: false
+        checked: false
     },
     {
         value: "hair-and-beauty",
         text: "Hair and beauty",
-        selected: false
+        checked: false
     },
     {
         value: "agriculture-environmental-and-animal-care",
         text: "Agriculture, environmental and animal care",
-        selected: false
+        checked: false
     }, 
     {
         value: "construction",
         text: "Construction",
-        selected: false
+        checked: false
     }, 
     {
         value: "education-and-childcare",
         text: "Education and childcare",
-        selected: false
+        checked: false
     }
 ]
 
@@ -513,7 +590,7 @@ let members = [
 let selectedEvent = null
 
 router.get('/aanApplication', (req, res) => {
-    res.render('aanApplication',  {regions} )
+    res.render('aanApplication',  {regions, industries} )
 })
 
 
@@ -536,6 +613,20 @@ router.get('/event-notifications/:eventid', (req, res) => {
 
       console.log(selectedEvent)
 
+      let newProfiles = [...profiles]
+
+      let attendees = newProfiles.map(item => {
+        return [
+            {
+                html: `<img class="profile" src="${item.src}"/>`,
+                classes: 'profile'
+            },
+            {
+                html: `<a href="#">${item.name}</a>`
+            }
+        ]
+    })  
+
       if(selectedEvent){
           if(selectedEvent.series){
               buttonText = "Sign up for series"
@@ -544,7 +635,7 @@ router.get('/event-notifications/:eventid', (req, res) => {
             buttonText = "Sign up"
           }
         
-          res.render('event-detail-template', { selectedEvent, members, buttonText })
+          res.render('event-detail-template', { selectedEvent, members, buttonText, attendees })
       }
       else {
           res.send("sorry no event details")
@@ -603,7 +694,7 @@ router.get('/event-search', (req, res) => {
         }
      })
 
-    res.render('event-search', { events, filterR, filterI, selectedRegions, filteredEvents, selectedIndustry })
+    res.render('event-search', { events, filterR, filterI, selectedRegions, filteredEvents, selectedIndustry, dates, eventType })
     
 }),
 

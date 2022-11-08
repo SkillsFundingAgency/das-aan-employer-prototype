@@ -43,7 +43,10 @@ h4 {
 }
 
 .content-card {
-    margin-bottom: $small-margin
+    margin-bottom: $small-margin;
+    padding: 18px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.185);
 }
 
 ul {
@@ -121,6 +124,7 @@ gap: 24px;
 
 .hub-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 12px;
 }
@@ -129,17 +133,63 @@ gap: 24px;
     display: flex;
     gap: 10px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 4px 4px 0px #bfbdbd;
-    background-color: #EAE9E9;
+    background-color: #ffffff;
+    border: 1px solid #3277D2;
     padding: 10px;
     margin: 10px;
     align-content: flex-start;
 }
 
+.new-content {
+    display: grid;
+    grid-template-columns: 4fr 1.5fr;
+    grid-template-rows: 1fr 2fr;
+    column-gap: 16px;
+}
+
+.cardInfo {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    height: fit-content;
+    background-color: #e8e8e8;
+    padding: 8px;
+}
+
+.cardInfo1 {
+    justify-self: flex-end;
+    padding: 4px;
+}
+
+.text {
+    text-align: end;
+}
+
+.card-p {
+    margin: 0;
+}
+
+.online {
+    background-color: #88D5E8;
+}
+
+.inPerson {
+    background-color: #AFA6CE;
+}
+
+.hybrid {
+    background-color: #A5D9B4;
+}
+
 .border {
     border: 3px solid black;
     border-radius: 10px;
+}
+
+.column {
+    flex-direction: column;
 }
 
 .small-padding {
@@ -158,4 +208,15 @@ gap: 24px;
 .pannel-bottom {
     border-bottom: 6px solid #949494;
     
+}
+
+
+#seeAll:hover {
+    cursor: pointer;
+}
+
+.gridCard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }

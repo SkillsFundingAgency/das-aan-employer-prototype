@@ -34,51 +34,147 @@
 
   <p class="base-margin-bottom">All events being held in the AAN are listed on this page. You can filter events by your role, region and event type. </p>
 
-  {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-{{ govukSelect({
-  id: "filter-region",
-  name: "filter-region",
-  label: {
-    text: "Region"
-  },
-  items: selectedRegions
-})
- }}
-
- {{ govukSelect({
-  id: "filter-industry",
- name: "filter-industry",
-  label: {
-         text: "Sector"
- },
-  items: selectedIndustry
- })
-}}
+  {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+  {%- from "govuk/components/input/macro.njk" import govukInput -%}
+  {%- from "govuk/components/table/macro.njk" import govukTable -%}
+  {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+  {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 
 
+  {% set filterOptionsHtml %}
 
-  <h4 class="govuk-body-s govuk-!-font-weight-bold">
-    {{filteredEvents | length}} events upcoming listed 
-  </h4>
+  {{ govukSelect({
+    id: "filter-date",
+   name: "filter-date",
+    label: {
+           text: "Filter events by date"
+   },
+    items: dates
+   })
+  }}
 
-  {% for event in filteredEvents %}
-        {% include "eventCard.html" %} 
-  {% endfor %}
+  {{ govukSelect({
+    id: "filter-type",
+   name: "filter-type",
+    label: {
+           text: "Filter events by type"
+   },
+    items: eventType
+   })
+  }}
 
+
+    {{ govukCheckboxes({
+      name: 'region',
+      classes: "govuk-checkboxes--small filter-region",
+      fieldset: {
+        legend: {
+          text: 'Region',
+          classes: 'govuk-fieldset__legend--m'
+        }
+      },
+      items: selectedRegions
+    }) }}
+  
+    {{ govukCheckboxes({
+      name: 'sector',
+      classes: "govuk-checkboxes--small",
+      fieldset: {
+        legend: {
+          text: 'Sector',
+          classes: 'govuk-fieldset__legend--m'
+        }
+      },
+      items: selectedIndustry
+    })
+   }}
+  
+  {% endset %}
+  
+  
+  <div class="moj-filter-layout">
+  
+    <div class="moj-filter-layout__filter">
+  
+      {{ mojFilter({
+        heading: {
+        text: 'Filter'
+        },
+        selectedFilters: {
+  
+        heading: {
+          text: 'Selected filters'
+        },
+  
+        clearLink: {
+          text: 'Clear filters'
+        },
+  
+        categories: [
+          {
+            heading: {
+              text: 'Region'
+            },
+            items: [{
+              href: '#',
+              text: 'South West'
+            }, {
+              href: '#',
+              text: 'London'
+            }]
+          },
+          {
+            heading: {
+              text: 'Sector'
+            },
+            items: [{
+              href: '#',
+              text: 'Health and science'
+            }]
+          }
+        ]
+      },
+        optionsHtml: filterOptionsHtml
+      }) }}
+  
+    </div>
+  
+    <div class="moj-filter-layout__content">
+  
+    <div class="moj-action-bar">
+  
+      <div class="moj-action-bar"></div>
+  
+    
+    </div>
+  
+    <div class="moj-scrollable-pane base-margin-top">
+      <h4 class="govuk-body-s govuk-!-font-weight-bold">
+        {{filteredEvents | length}} events upcoming listed 
+      </h4>
+    
+      {% for event in filteredEvents %}
+            {% include "eventCard.html" %} 
+      {% endfor %}
+    </div>
+  </div>
 
 
   <script>
    
-   let selects = document.querySelectorAll('.govuk-select')
+   let boxes = document.querySelectorAll('.govuk-checkboxes__input')
     let selectR = document.querySelector('#filter-region')
     let selectI = document.querySelector('#filter-industry')
 
-    selects.forEach(select => {
-      console.log('foreach')
-       addEventListener('change', () => {
-         console.log("event listener", select.value)
-         window.location = `/event-search?r=${selectR.value}&i=${selectI.value}`
+    let newArr = [] 
+
+    boxes.forEach(box => {
+       addEventListener('change', (e) => {
+        if (e.target.checked){
+          let item = e.target
+           }    
+
       })
     })
 
