@@ -69,7 +69,7 @@ const events = [
     },
     {
         eventTitle: "Plymouth AAN employer meeting",
-        type:"In Person",
+        type:"In person",
         format: "Network Meeting: single event",
         time: "13:00-15:00",
         date:"4th November 2022",
@@ -195,11 +195,6 @@ const networkSettings = [
 
 let regions = [
     {
-      value: "choose-region",
-      text: "Choose a Region",
-      selected: false
-    },
-    {
       value: "south-west",
       text: "South West",
       selected: false
@@ -264,7 +259,7 @@ let regions = [
     },
     {
         value: "next-3-months",
-        text: "The Next 3 Months",
+        text: "The next 3 months",
         selected: false
     }
 ]
