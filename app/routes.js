@@ -297,6 +297,30 @@ let eventType = [
     },
 
 ]
+
+let eventFormat = [
+    {
+        value: "choose-event-format",
+        text: "Choose event format",
+        selected: false
+    },
+    {
+        value: "online",
+        text: "Online",
+        selected: false
+    },
+    {
+        value: "in-person",
+        text: "In person",
+        selected: false
+    },
+    {
+        value: "hybrid",
+        text: "Hybrid",
+        selected: false
+    }
+]
+
 let industries = [
       {
         value: "business-and-administration",
@@ -689,7 +713,7 @@ router.get('/event-search', (req, res) => {
         }
      })
 
-    res.render('event-search', { events, filterR, filterI, selectedRegions, filteredEvents, selectedIndustry, dates, eventType })
+    res.render('event-search', { events, filterR, filterI, selectedRegions, filteredEvents, selectedIndustry, dates, eventType, eventFormat })
     
 }),
 

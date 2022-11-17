@@ -49,6 +49,10 @@ h4 {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.185);
 }
 
+.border-card {
+    border: 1px solid rgb(0 0 0 / 19%)
+} 
+
 ul {
     padding:0px;
 }
@@ -73,10 +77,19 @@ ol {
 .indent-s {
     padding-left: 20px;
 }
+
+.indent-xs {
+    padding-left: 10px;
+}
+
 .summary {
 display: flex;
 flex-direction: column;
 gap: 24px;
+}
+
+.xs-margin-bottom {
+    margin-bottom: 6px;
 }
 
 .base-margin-bottom {
@@ -224,3 +237,8 @@ gap: 24px;
 .flex-start {
     align-items: flex-start;
 }
+
+.padding-top-s {
+    padding-top: 6px;
+}
+
