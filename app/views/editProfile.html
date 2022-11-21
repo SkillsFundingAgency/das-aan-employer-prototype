@@ -1,0 +1,205 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageNavigation %}
+  
+    {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+        {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+            {
+            text: "Hub home",
+            href: "/hubHome"
+            },
+            {
+              text: "Edit Profile",
+              href: "/editProfile"
+            }
+         
+        ]
+        }) 
+    }}
+    
+  {% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+   Edit profile 
+  </h1>
+
+  <p class="govuk-body-s">
+    You can edit your profile below. To update your name, email and region please complete this in you gov.uk portal.
+  </p>
+
+  <div class="flex
+              medium-margin-bottom
+              flex-start
+              column
+              medium-margin-bottom">
+    <img class="profile-image base-margin-bottom" src="/public/images/profile.jpg" alt="profile image" width="300px">
+    
+    {{ govukButton({
+      text: "Edit profile picture",
+      classes: "govuk-button--secondary",
+      href: '#'
+    }) 
+    }}
+    
+</div>
+
+  
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+  
+
+  {{ govukSummaryList({
+  rows: [
+      {
+        key: {
+            text: "Name:"
+        },
+        value: {
+            text: "Paul Smith"
+        }
+      },
+      {
+      key: {
+          text: "Email address:"
+      },
+      value: {
+          text: "paulsmith@gov.uk"
+      }  
+      },
+      {
+      key: {
+          text: "Residence (Town or city in which you live):"
+      },
+      value: {
+          html: "Coventry"
+      },
+      actions: {
+            items: [ 
+              {
+                html: '<div class="govuk-checkboxes__item">
+                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="approved">
+                             <span class="govuk-visually-hidden">town or city</span>
+                      </label>
+                      </div>'
+              }
+            ]   
+        }
+      },
+      {
+      key: {
+          text: "Region:"
+      },
+      value: {
+          html: "West Midlands"
+      },
+      actions: {
+            items: [ 
+              {
+                html: '<div class="govuk-checkboxes__item">
+                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="approved">
+                             <span class="govuk-visually-hidden">Region</span>
+                      </label>
+                      </div>'
+              }
+            ]   
+        }
+      },
+      {
+      key: {
+          text: "Current Role:"
+      },
+      value: {
+          html: 'Freight Forwarding'
+      },
+      actions: {
+            items: [ 
+              {
+                html: '<div class="govuk-checkboxes__item">
+                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="approved">
+                             <span class="govuk-visually-hidden">Name</span>
+                      </label>
+                      </div>'
+              }
+            ]   
+        }
+      },
+      {
+        key: {
+            text: "Organisation:"
+        },
+        value: {
+            html: 'F.S Mackenzie Ltd'
+        },
+        actions: {
+            items: [ 
+              {
+                html: '<div class="govuk-checkboxes__item">
+                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="approved">
+                             <span class="govuk-visually-hidden">Name</span>
+                      </label>
+                      </div>'
+              }
+            ]   
+        }
+      },
+      {
+        key: {
+            text: "Number of current apprentices:"
+        },
+        value: {
+            html: '2'
+        },
+        actions: {
+            items: [ 
+              {
+                html: '<div class="govuk-checkboxes__item">
+                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="approved">
+                             <span class="govuk-visually-hidden">Name</span>
+                      </label>
+                      </div>'
+              }
+            ]   
+        }
+      },
+      {
+        key: {
+            text: "Case Study:"
+        },
+        value: {
+            html: '<a href="#">Upload here</a>'
+        }
+      }
+
+  ]
+  }) 
+}}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Edit Profile",
+  classes: "govuk-button--secondary",
+  href: '#'
+}) 
+}}
+
+{% for item in networkSettings %}
+    {% include "networkCard.html" %}
+  {% endfor %}
+
+{% endblock %}
+
