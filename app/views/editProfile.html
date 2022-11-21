@@ -83,16 +83,13 @@
           html: "Coventry"
       },
       actions: {
-            items: [ 
-              {
-                html: '<div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="approved">
-                             <span class="govuk-visually-hidden">town or city</span>
-                      </label>
-                      </div>'
-              }
-            ]   
+        items: [
+        {
+          href: "#",
+          text: "Edit",
+          visuallyHiddenText: "residence"
+        }
+      ]
         }
       },
       {
@@ -101,19 +98,7 @@
       },
       value: {
           html: "West Midlands"
-      },
-      actions: {
-            items: [ 
-              {
-                html: '<div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="approved">
-                             <span class="govuk-visually-hidden">Region</span>
-                      </label>
-                      </div>'
-              }
-            ]   
-        }
+      }
       },
       {
       key: {
@@ -123,18 +108,15 @@
           html: 'Freight Forwarding'
       },
       actions: {
-            items: [ 
-              {
-                html: '<div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="approved">
-                             <span class="govuk-visually-hidden">Name</span>
-                      </label>
-                      </div>'
-              }
-            ]   
-        }
-      },
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "current role"
+            }
+          ]
+      }
+    },
       {
         key: {
             text: "Organisation:"
@@ -143,16 +125,13 @@
             html: 'F.S Mackenzie Ltd'
         },
         actions: {
-            items: [ 
-              {
-                html: '<div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="approved">
-                             <span class="govuk-visually-hidden">Name</span>
-                      </label>
-                      </div>'
-              }
-            ]   
+          items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "organisation"
+          }
+        ]  
         }
       },
       {
@@ -163,16 +142,13 @@
             html: '2'
         },
         actions: {
-            items: [ 
-              {
-                html: '<div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="approved" name="approved" type="checkbox" value="name" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="approved">
-                             <span class="govuk-visually-hidden">Name</span>
-                      </label>
-                      </div>'
-              }
-            ]   
+          items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "Number of apprentices"
+          }
+        ]
         }
       },
       {
@@ -191,8 +167,8 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Edit Profile",
-  classes: "govuk-button--secondary",
+  text: "Save Changes",
+  classes: "govuk-button--primary",
   href: '#'
 }) 
 }}
