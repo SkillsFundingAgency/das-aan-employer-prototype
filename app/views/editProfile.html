@@ -35,23 +35,6 @@
   <p class="govuk-body-s">
     You can edit your profile information below with the exception of your name, email address and region, which must be updated in the gov.uk portal.
   </p>
-
-  <div class="flex
-              medium-margin-bottom
-              flex-start
-              column
-              medium-margin-bottom">
-    <img class="profile-image base-margin-bottom" src="/public/images/profile.jpg" alt="profile image" width="300px">
-    
-    {{ govukButton({
-      text: "Edit profile picture",
-      classes: "govuk-button--secondary",
-      href: '#'
-    }) 
-    }}
-    
-</div>
-
   
   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
@@ -66,6 +49,24 @@
         value: {
             text: "Paul Smith"
         }
+      },
+      {
+        key: {
+            text: "Profile photo:",
+            classes: "vertical-align"
+        },
+        value: {
+            html: '<img class="profile-image base-margin-bottom" src="/public/images/profile.jpg" alt="profile image" width="100px">'          },
+        actions: {
+          classes: "vertical-align",
+          items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "profile-photo"
+          }
+        ]
+          }
       },
       {
       key: {
@@ -169,7 +170,7 @@
 {{ govukButton({
   text: "Save Changes",
   classes: "govuk-button--primary",
-  href: '#'
+  href: 'profile-settings'
 }) 
 }}
 

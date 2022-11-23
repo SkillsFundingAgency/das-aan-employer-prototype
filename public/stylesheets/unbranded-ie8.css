@@ -8557,6 +8557,10 @@ ol {
   align-content: flex-start;
 }
 
+.vertical-align {
+  vertical-align: top;
+}
+
 .new-content {
   display: grid;
   grid-template-columns: 4fr 1.5fr;
@@ -8579,7 +8583,8 @@ ol {
 }
 
 .text {
-  text-align: end;
+  margin-bottom: 0;
+  text-align: start;
 }
 
 .card-p {
