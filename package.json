@@ -33,7 +33,7 @@
     "govuk_frontend_toolkit": "^7.5.0",
     "govuk_template_jinja": "^0.24.1",
     "gray-matter": "^4.0.3",
-    "inquirer": "^8.2.0",
+    "inquirer": "^8.2.7",
     "lodash": "^4.17.21",
     "marked": "^4.0.10",
     "nodemon": "^2.0.20",
