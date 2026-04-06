@@ -34,7 +34,7 @@
     "govuk_template_jinja": "^0.24.1",
     "gray-matter": "^4.0.3",
     "inquirer": "^8.2.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "marked": "^4.0.10",
     "nodemon": "^2.0.20",
     "notifications-node-client": "^5.1.0",
